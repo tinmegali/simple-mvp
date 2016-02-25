@@ -8,7 +8,7 @@ Framework canônico para aplicação do padrão Model View Presenter no Android
  Dr. Douglas Schmidth</a> 
  ---------------------------------------------------
  
- <strong>Code comments on portuguese.</strong> For english you can check <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
+ <strong>Code comments in portuguese.</strong> For english you can check <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
  the original rep.</a> I'll provide english comments later.
  
  Código comentado em português
