@@ -18,9 +18,9 @@ package com.tinmegali.androidmvp.common.mvp;
 /**
  * Interface com operações básicas que todos os modelos
  * devem implementar
- * @param <RequiredModelOps>
+ * @param <RequiredPresenterOps>
  */
-public interface ModelOps<RequiredModelOps> {
+public interface ModelOps<RequiredPresenterOps> {
 
     /**
      * Método disparado pelo GenericModel para inicializar
@@ -28,7 +28,7 @@ public interface ModelOps<RequiredModelOps> {
      *
      * @param presenterOps  interface com o Presenter
      */
-    void onCreate(RequiredModelOps presenterOps);
+    void onCreate(RequiredPresenterOps presenterOps);
 
     /**
      * Método disparado nas operações quando o Presenter registra

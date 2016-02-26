@@ -35,7 +35,8 @@ import java.lang.ref.WeakReference;
 public abstract class GenericPresenter
         <RequiredPresenterOps,
                 ProvidedModelOps, RequiredViewOps,
-                ModelType extends ModelOps<RequiredPresenterOps> >{
+                ModelType extends ModelOps<RequiredPresenterOps> >
+        implements PresenterOps<RequiredViewOps>{
 
 
     protected final String TAG = getClass().getSimpleName();

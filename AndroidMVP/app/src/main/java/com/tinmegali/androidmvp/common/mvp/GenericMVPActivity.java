@@ -47,7 +47,7 @@ public abstract class GenericMVPActivity
                 ProvidedPresenterOps,
                 PresenterType extends PresenterOps<RequiredViewOps>>
         extends ActivityKeyBoardDetector
-        implements ContextView {
+        implements ActivityView {
 
     protected final String TAG = getClass().getSimpleName();
 
@@ -119,7 +119,7 @@ public abstract class GenericMVPActivity
 
         mStateMaintainer.put( opsType.getSimpleName(), mPresenterInstance );
 
-        mPresenterInstance.onCreate( view );
+        mPresenterInstance.onCreate(view);
 
     }
 
