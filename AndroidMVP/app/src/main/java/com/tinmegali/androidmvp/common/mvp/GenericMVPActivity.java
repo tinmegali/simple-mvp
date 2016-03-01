@@ -1,11 +1,6 @@
 package com.tinmegali.androidmvp.common.mvp;
 
 /**
- * Atividade genérica, que funciona como um framework mediando o acesso
- * com o Presenter no padrão Model View Presenter (MVP), além de lidar
- * com operações de ciclo de vida. Implementa {@link ContextView},
- * garantindo ao Presenter acesso aos contextos.
- *
  * ---------------------------------------------------
  * Created by Tin Megali on 24/02/16.
  * Project: AndroidMVP

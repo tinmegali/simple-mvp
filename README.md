@@ -1,4 +1,4 @@
-# Android-Model-View-Presenter-MVP
+<h1>Android-Model-View-Presenter-MVP</h1>
 Framework canônico para aplicação do padrão Model View Presenter no Android
 
  Created by <a href="http://www.tinmegali.com">Tin Megali</a> on 24/02/16.
@@ -12,3 +12,7 @@ Framework canônico para aplicação do padrão Model View Presenter no Android
  the original rep.</a> I'll provide english comments later for my implementation.
  
  Código comentado em português
+ 
+<h2>Android MVP Class Diagram</h2>
+<img src="http://www.tinmegali.com/wp-content/uploads/2016/02/mvp-class-diagram.jpg" />
+ 
