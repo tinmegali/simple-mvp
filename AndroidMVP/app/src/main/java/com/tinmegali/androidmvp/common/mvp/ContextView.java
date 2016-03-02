@@ -16,7 +16,7 @@ import android.content.Context;
  *     Dr. Douglas Schmidth</a>
  * ---------------------------------------------------
  *
- * Interface que garante  acesso ao Presenter acesso aos contextos.
+ * Interface que garante acesso ao Presenter acesso aos contextos.
  * Deve ser aplicada às Atividades, Fragments e outros tipos de View,
  * dependendo da organização do projeto.
  */
