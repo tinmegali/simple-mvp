@@ -51,9 +51,9 @@ public class MainPresenter
     @Override
     public void onCreate(MVP_MainActivity.RequiredViewOps view) {
         super.onCreate(MainModel.class, this);
+        // super.onCreate(<Model.class>, <RequiredPresenterOps>);
         setView( view );
     }
-
 
     /**
      * Operação invocada após a reconstrução da View
@@ -75,6 +75,4 @@ public class MainPresenter
     public void onBackPressed() {
 
     }
-
-
 }

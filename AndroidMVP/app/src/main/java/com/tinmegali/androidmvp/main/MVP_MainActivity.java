@@ -76,7 +76,6 @@ public interface MVP_MainActivity {
      *      Presenter -> View
      */
     interface RequiredViewOps extends ActivityView {
-
     }
 
 
@@ -85,7 +84,6 @@ public interface MVP_MainActivity {
      *      View -> Presenter
      */
     interface ProvidedPresenterOps extends PresenterOps<RequiredViewOps> {
-
     }
 
     /**
@@ -93,7 +91,6 @@ public interface MVP_MainActivity {
      *      Model -> Presenter
      */
     interface RequiredPresenterOps {
-
     }
 
     /**
@@ -101,7 +98,6 @@ public interface MVP_MainActivity {
      *      Presenter -> Model
      */
     interface ProvidedModelOps extends ModelOps<RequiredPresenterOps>{
-
     }
 
 }
