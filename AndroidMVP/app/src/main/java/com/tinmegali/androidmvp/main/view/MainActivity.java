@@ -7,9 +7,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.tinmegali.androidmvp.R;
-import com.tinmegali.androidmvp.common.mvp.GenericMVPActivity;
 import com.tinmegali.androidmvp.main.MVP_MainActivity;
 import com.tinmegali.androidmvp.main.presenter.MainPresenter;
+import com.tinmegali.mvp.mvp.GenericMVPActivity;
 
 /**
  * ---------------------------------------------------
@@ -33,9 +33,9 @@ import com.tinmegali.androidmvp.main.presenter.MainPresenter;
 
 public class MainActivity
         extends
-            GenericMVPActivity<MVP_MainActivity.RequiredViewOps,
-                                    MainPresenter,
-                                    MainPresenter>
+        GenericMVPActivity<MVP_MainActivity.RequiredViewOps,
+                MVP_MainActivity.ProvidedPresenterOps,
+                                            MainPresenter>
         implements
             MVP_MainActivity.RequiredViewOps{
 

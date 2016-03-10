@@ -1,4 +1,4 @@
-package com.tinmegali.androidmvp.common.mvp;
+package com.tinmegali.mvp.mvp;
 
 /**
  * ---------------------------------------------------
@@ -6,7 +6,7 @@ package com.tinmegali.androidmvp.common.mvp;
  * Project: AndroidMVP
  * ---------------------------------------------------
  * <a href="http://www.tinmegali.com">tinmegali.com</a>
- * <a href="http://www.github.com/tinmegali>github</a>
+ * <a href="http://www.github.com/tinmegali">github</a>
  * ---------------------------------------------------
  * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
  * framework MVP</a> developed by

@@ -1,9 +1,8 @@
 package com.tinmegali.androidmvp.main.presenter;
 
-import com.tinmegali.androidmvp.common.mvp.GenericMVPActivity;
-import com.tinmegali.androidmvp.common.mvp.GenericPresenter;
 import com.tinmegali.androidmvp.main.MVP_MainActivity;
 import com.tinmegali.androidmvp.main.model.MainModel;
+import com.tinmegali.mvp.mvp.GenericPresenter;
 
 /**
  * ---------------------------------------------------
@@ -26,10 +25,9 @@ import com.tinmegali.androidmvp.main.model.MainModel;
  */
 
 public class MainPresenter
-        extends GenericPresenter
-                        <MVP_MainActivity.RequiredPresenterOps,
-                        MVP_MainActivity.ProvidedModelOps, MVP_MainActivity.RequiredViewOps,
-                        MainModel>
+        extends GenericPresenter<MVP_MainActivity.RequiredPresenterOps,
+                                MVP_MainActivity.ProvidedModelOps, MVP_MainActivity.RequiredViewOps,
+                                MainModel>
         implements
             MVP_MainActivity.RequiredPresenterOps,
             MVP_MainActivity.ProvidedPresenterOps
@@ -37,7 +35,7 @@ public class MainPresenter
 
     /**
      * Operação invocada durante a criação de View em
-     * {@link GenericMVPActivity#onCreate(Class, Object)}
+     * {@link com.tinmegali.mvp.mvp.GenericMVPActivity#onCreate(Class, Object)}
      * Responsável por inicializar Model e armazenar referência das
      * opeações em View.
      *
@@ -69,7 +67,7 @@ public class MainPresenter
 
 
     /**
-     * Disparado pela {@link GenericMVPActivity} para informar um evento onBackPressed
+     * Disparado pela {@link com.tinmegali.mvp.mvp.GenericMVPActivity} para informar um evento onBackPressed
      */
     @Override
     public void onBackPressed() {

@@ -1,4 +1,4 @@
-package com.tinmegali.androidmvp.common.mvp;
+package com.tinmegali.mvp.mvp;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
  * Created by Tin Megali on 01/03/16.
  * Project: AndroidMVP
  * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com</a>
+ * <a href="http://www.tinmegali.com">tinmegali.com"</a>
  * <a href="http://www.github.com/tinmegali>github</a>
  * ---------------------------------------------------
  */

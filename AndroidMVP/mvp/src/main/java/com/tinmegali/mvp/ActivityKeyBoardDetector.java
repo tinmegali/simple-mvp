@@ -1,6 +1,5 @@
-package com.tinmegali.androidmvp.common;
+package com.tinmegali.mvp;
 
-import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -16,7 +15,7 @@ import android.widget.Toast;
  * Project: AndroidMVP
  * ---------------------------------------------------
  * <a href="http://www.tinmegali.com">tinmegali.com</a>
- * <a href="http://www.github.com/tinmegali>github</a>
+ * <a href="http://www.github.com/tinmegali">github</a>
  * ---------------------------------------------------
  *
  */

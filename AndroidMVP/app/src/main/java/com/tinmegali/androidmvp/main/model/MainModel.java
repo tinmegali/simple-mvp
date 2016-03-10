@@ -1,7 +1,7 @@
 package com.tinmegali.androidmvp.main.model;
 
-import com.tinmegali.androidmvp.common.mvp.GenericModel;
 import com.tinmegali.androidmvp.main.MVP_MainActivity;
+import com.tinmegali.mvp.mvp.GenericModel;
 
 /**
  * ---------------------------------------------------
@@ -16,7 +16,7 @@ import com.tinmegali.androidmvp.main.MVP_MainActivity;
  * <a href="https://github.com/douglascraigschmidt">
  * Dr. Douglas Schmidth</a>
  * ---------------------------------------------------
- *
+ * TODO english comments
  * Layer MODEL no padrão Model View Presenter (MVP)
  * Responsável por lidar com qualquer lógica de dados.
  * Exibição de qualquer resultado na UI ou qualquer comunicação
@@ -27,9 +27,12 @@ public class MainModel extends GenericModel<MVP_MainActivity.RequiredPresenterOp
         implements MVP_MainActivity.ProvidedModelOps {
 
     /**
+     * Method that recovers a reference to the PRESENTER
+     * - You must ALWAYS call {@link super#onCreate(Object)} here
+     * @param presenterOps Presenter interface
+     *
      * Método que recupera referência ao layer PRESENTER
      * 1 - {@link super#onCreate(Object)} deve sempre deve ser chamado
-     * @param presenterOps  interface com o Presenter
      */
     @Override
     public void onCreate(MVP_MainActivity.RequiredPresenterOps presenterOps) {
@@ -37,12 +40,16 @@ public class MainModel extends GenericModel<MVP_MainActivity.RequiredPresenterOp
     }
 
     /**
+     * Called by layer PRESENTER when VIEW pass for a reconstruction/destruction.
+     * Usefull for kill/stop activities that could be running on the background
+     * Threads
+     * @param isChangingConfiguration   Informs that a change is occurring on the configuration
+     *
+     *
      * Disparado pelo layer PRESENTER quando o VIEW passa por uma
      * reconstrução/destruição. Útil como referência para parar tarefas
      * sendo realizadas em background Threads
      *
-     * @param isChangingConfiguration   Informa se está ocorrendo uma
-     *                                  mudança de configuração
      */
     @Override
     public void onDestroy(boolean isChangingConfiguration) {

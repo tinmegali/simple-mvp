@@ -1,10 +1,8 @@
 package com.tinmegali.androidmvp.main;
 
-import android.view.View;
-
-import com.tinmegali.androidmvp.common.mvp.ActivityView;
-import com.tinmegali.androidmvp.common.mvp.ModelOps;
-import com.tinmegali.androidmvp.common.mvp.PresenterOps;
+import com.tinmegali.mvp.mvp.ActivityView;
+import com.tinmegali.mvp.mvp.ModelOps;
+import com.tinmegali.mvp.mvp.PresenterOps;
 
 /**
  * ---------------------------------------------------
@@ -19,6 +17,51 @@ import com.tinmegali.androidmvp.common.mvp.PresenterOps;
  * <a href="https://github.com/douglascraigschmidt">
  * Dr. Douglas Schmidth</a>
  * ---------------------------------------------------
+ *
+ * Interface that holds all operations available to MVP layers.
+ * Controls the communication process between each layer
+ *
+ * <strong>Using</strong>
+ * <ul>
+ *     <li> // TODO english comments
+ *         Crie as interfaces de comunicação entre os módulos View, Presenter e Model
+ *          <ol>
+ *              <li>
+ *             interface <code>RequiredViewOps</code> fornece métodos para <code>Presenter</code>
+ *         comunicar com <code>View</code>. É necessário extender <code>ActivityView</code>
+ *              </li>
+ *              <li>
+ *                  interface <code>ProvidedPresenterOps</code> fornece operações oferecidas
+ *                  ao layer View para comunicação com Presenter.
+ *                  É preciso extender <code>PresenterOps<RequiredViewOps></code>
+ *              </li>
+ *              <li>
+ *                  interface <code>RequiredPresenterOps</code> operações oferecidas
+ *                  pelo layer Presenter para comunicações com Model
+ *              </li>
+ *              <li>
+ *                  interface <code>ProvidedModelOps</code> operações oferecidos pelo
+ *                  layer Model para comunicações com Presenter.
+ *                  É preciso extender <code>ModelOps<RequiredPresenterOps></code>
+ *              </li>
+ *          </ol>
+ *     </li>
+ *     <li>
+ *         Crie a classe <code>Model</code> extendendo <code>GenericModel<RequiredPresenterOps></code>
+ *         e implementando <code>ProvidedModelOps</code>
+ *         ex: {@link com.tinmegali.androidmvp.main.model.MainModel}
+ *     </li>
+ *     <li>
+ *         Crie a classe <code>Presenter</code> extendendo <code>GenericPresenter</code>,
+ *         implementando <code>RequiredPresenterOps</code> e <code>ProvidedPresenterOps</code>.
+ *         exemplo: {@link com.tinmegali.androidmvp.main.presenter.MainPresenter}
+ *     </li>
+ *     <li>
+ *         Crie a classe <code>View</code> GenericMVPActivity ou GenericMVPFragment e
+ *         implementando <code>RequiredViewOps</code>
+ *         Exemplo: {@link com.tinmegali.androidmvp.main.view.MainActivity}
+ *     </li>.
+ * </ul>
  *
  * Interface guarda-chuva, que armazena todas operações disponíveis
  * para realizar comunicações entre os diferentes layer
@@ -72,6 +115,9 @@ import com.tinmegali.androidmvp.common.mvp.PresenterOps;
 public interface MVP_MainActivity {
 
     /**
+     * Required View methods available to Presenter
+     *      Presenter -> View
+     *
      * Métodos obrigatórios em View, disponíveis para Presenter
      *      Presenter -> View
      */
@@ -80,6 +126,9 @@ public interface MVP_MainActivity {
 
 
     /**
+     * Operations offered to View to communicate with Presenter
+     *      View -> Presenter
+     *
      * operações oferecidas ao layer View para comunicação com Presenter
      *      View -> Presenter
      */
@@ -87,6 +136,9 @@ public interface MVP_MainActivity {
     }
 
     /**
+     * Required Presenter methods available to Model
+     *      Model -> Presenter
+     *
      * operações oferecidas pelo layer Presenter para comunicações com Model
      *      Model -> Presenter
      */
@@ -94,10 +146,13 @@ public interface MVP_MainActivity {
     }
 
     /**
+     * Operations offered to Model to communicate with Presenter
+     *      Presenter -> Model
+     *
      * operações oferecidos pelo layer Model para comunicações com Presenter
      *      Presenter -> Model
      */
-    interface ProvidedModelOps extends ModelOps<RequiredPresenterOps>{
+    interface ProvidedModelOps extends ModelOps<RequiredPresenterOps> {
     }
 
 }

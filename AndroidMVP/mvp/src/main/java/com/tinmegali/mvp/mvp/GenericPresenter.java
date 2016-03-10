@@ -1,4 +1,4 @@
-package com.tinmegali.androidmvp.common.mvp;
+package com.tinmegali.mvp.mvp;
 
 /**
  * ---------------------------------------------------

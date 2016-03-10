@@ -1,11 +1,11 @@
-package com.tinmegali.androidmvp.common.mvp;
+package com.tinmegali.mvp.mvp;
 
 /**
  * ---------------------------------------------------
  * Created by Tin Megali on 24/02/16.
  * Project: AndroidMVP
  * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com</a>
+ * <a href="http://www.tinmegali.com">tinmegali.com"</a>
  * <a href="http://www.github.com/tinmegali>github</a>
  * ---------------------------------------------------
  * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
@@ -20,14 +20,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.tinmegali.androidmvp.common.ActivityKeyBoardDetector;
-
+import com.tinmegali.mvp.ActivityKeyBoardDetector;
 /**
  * Atividade genérica, que funciona como um framework mediando o acesso
  * com o Presenter no padrão Model View Presenter (MVP), além de lidar
  * com operações de ciclo de vida. Implementa {@link ContextView},
  * garantindo ao Presenter acesso aos contextos.
- * Extende {@link ActivityKeyBoardDetector}, adicionando funções de
+ * Extende {@link com.tinmegali.mvp.ActivityKeyBoardDetector}, adicionando funções de
  * para detectar presença do softKeyboard na tela
  *
  * @param <RequiredViewOps> classe ou interface que define
