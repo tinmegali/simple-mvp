@@ -57,8 +57,8 @@ bintray {
         name = BINRAY_NAME
 
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/tinmegali'
-        websiteUrl = 'https://github.com/tinmegali'
+        vcsUrl = 'https://github.com/tinmegali/Android-Model-View-Presenter-MVP.git'
+        websiteUrl = 'https://github.com/tinmegali/Android-Model-View-Presenter-MVP'
     }
     configurations = ['archives']
 }
