@@ -4,7 +4,12 @@
  * <p>
  * Each layer of MVP pattern should extends
  * its generic object and implement the correct
- * interfaces to communicate with the other Layers.
+ * interfaces to communicate with the other Layers. <br />
+ * <strong> Check sample MVP interface
+ *     <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
+ *         sample interface
+ *     </a>
+ * </strong>
  * <ul>
  *     <li><strong>VIEW</strong>
  *     <ul>
@@ -54,7 +59,10 @@
  * </ul>
  *
  * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
- * @since 0.1
+ * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/tree/master/AndroidMVP/app">Sample Application</a>
+ * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
+ *         Sample MVP interface
+ *     </a>
  *
  */
 package com.tinmegali.mvp.mvp;

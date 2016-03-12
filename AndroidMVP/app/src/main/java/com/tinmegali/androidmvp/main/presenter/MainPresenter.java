@@ -14,10 +14,7 @@ import com.tinmegali.mvp.mvp.GenericPresenter;
  * <p>
  * Layer Presenter no padrão Model View Presenter (MVP). <br/>
  *
- * Cumpre o papel de mediador entre o layer View (Activity, Frags e uis)
- * e o layer Model (operações de dados).
- *
- * @author Tin Megali on 25/02/16. <br/>
+ * Created by: Tin Megali on 25/02/16. <br/>
  * Project: AndroidMVP </br>
  * --------------------------------------------------- <br />
  * <a href="http://www.tinmegali.com">tinmegali.com</a> <br/>
@@ -29,8 +26,6 @@ import com.tinmegali.mvp.mvp.GenericPresenter;
  * framework MVP</a> developed by
  * <a href="https://github.com/douglascraigschmidt">
  * Dr. Douglas Schmidth</a>
- * </p>
- *
  * </p>
  */
 

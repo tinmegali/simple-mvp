@@ -4,6 +4,11 @@ import com.tinmegali.androidmvp.main.MVP_MainActivity;
 import com.tinmegali.mvp.mvp.GenericModel;
 
 /**
+ * <p>
+ * Layer MODEL from Model View Presenter (MVP) pattern. <br/>
+ * Responsible to deal with all business logic and data in general. <br/>
+ * </p>
+ *
  * Created by Tin Megali on 25/02/16. <br/>
  * Project: AndroidMVP </br>
  * --------------------------------------------------- <br />
@@ -16,13 +21,6 @@ import com.tinmegali.mvp.mvp.GenericModel;
  * framework MVP</a> developed by
  * <a href="https://github.com/douglascraigschmidt">
  * Dr. Douglas Schmidth</a>
- * </p>
- * <p>
- * Layer MODEL from Model View Presenter (MVP) pattern. <br/>
- * Responsible to deal with all business logic and data in general. <br/>
- * </p>
- * Layer MODEL no padrão Model View Presenter (MVP)
- * Responsável por lidar com qualquer lógica de dados.
  * </p>
  */
 

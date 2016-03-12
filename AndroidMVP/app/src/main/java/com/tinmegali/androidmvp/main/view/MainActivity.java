@@ -12,25 +12,23 @@ import com.tinmegali.androidmvp.main.presenter.MainPresenter;
 import com.tinmegali.mvp.mvp.GenericMVPActivity;
 
 /**
+ * <p>
+ * VIEW layer of MVP pattern.
+ * </p><p>
+ * Created by: Tin Megali on 25/02/16. <br/>
+ * Project: AndroidMVP </br>
+ * --------------------------------------------------- <br />
+ * <a href="http://www.tinmegali.com">tinmegali.com</a> <br/>
+ * <a href="http://www.github.com/tinmegali>github</a> <br />
  * ---------------------------------------------------
- * Created by Tin Megali on 24/02/16.
- * Project: AndroidMVP
- * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com</a>
- * <a href="http://www.github.com/tinmegali>github</a>
- * ---------------------------------------------------
- * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
+ * <p>
+ * Based on
+ * <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
  * framework MVP</a> developed by
  * <a href="https://github.com/douglascraigschmidt">
  * Dr. Douglas Schmidth</a>
- * ---------------------------------------------------
- *
- * Layer VIEW no padrão Model View Presenter (MVP)
- *
- * Realiza uma comunicação direta com PRESENTER, que faz intermediação
- * com o layer MODEL e tras os resultados para VIEW.
+ * </p>
  */
-
 public class MainActivity
         extends
         GenericMVPActivity<MVP_MainActivity.RequiredViewOps,
@@ -40,9 +38,8 @@ public class MainActivity
             MVP_MainActivity.RequiredViewOps{
 
     /**
-     * Método padrão de criação de Atividades
-     * 1 - {@link super#onCreate(Class, Object)} deve obrigatóriamente
-     *     ser chamado na sequência ao método {@link super#onCreate(Bundle)}
+     * Method that initialized MVP objects
+     * {@link super#onCreate(Class, Object)} should always be called
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,14 +59,6 @@ public class MainActivity
             }
         });
     }
-
-
-    /**
-     *
-     * Operações disponíveis para layer PRESENTER
-     *
-     */
-
 
     @Override
     public void onShowSnackbar(String msg, View parentView) {

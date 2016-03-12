@@ -25,6 +25,10 @@ import java.lang.ref.WeakReference;
  * </p>
  *
  * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
+ * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/tree/master/AndroidMVP/app">Sample Application</a>
+ * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
+ *         Sample MVP interface
+ *     </a>
  *
  * @param <RequiredActivityOps>  Interface that define operation to be executed
  *                             on the Activity
