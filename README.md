@@ -14,6 +14,11 @@ Created by <a href="http://www.tinmegali.com">Tin Megali</a>
 <h3>Learn more</h3>
 <ul>
 	<li>
+		<a href="http://wp.me/p7gH7l-34">
+			Step by step guide
+		</a>
+	</li>
+	<li>
 		<a href="http://www.tinmegali.com/en/model-view-presenter-android-part-1/">
 			Model View Presenter Tutorial series</a> <br />
 		<em>Tutoriais também disponíveis em português</em>
