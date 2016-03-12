@@ -1,18 +1,99 @@
 <h1>Android-Model-View-Presenter-MVP</h1>
-Framework canônico para aplicação do padrão Model View Presenter no Android
 
- Created by <a href="http://www.tinmegali.com">Tin Megali</a> on 24/02/16.
- Project: AndroidMVP
- 
- Based on concept from <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
- Dr. Douglas Schmidth</a> 
- ---------------------------------------------------
- 
- <strong>Code comments in portuguese.</strong> For english you can check <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
- the original rep.</a> I'll provide english comments later for my implementation.
- 
- Código comentado em português
- 
+<p>
+A Model View Presenter Library using plain and simple canonical form,
+based on concept from 
+<a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc"> 
+Dr. Douglas Schmidt</a>
+</p>
+
+<p>
+Created by <a href="http://www.tinmegali.com">Tin Megali</a> 	
+</p>
+
+<h3>Learn more</h3>
+<ul>
+	<li>
+		<a href="http://www.tinmegali.com/en/model-view-presenter-android-part-1/">
+			Model View Presenter Tutorial series</a> <br />
+		<em>Tutoriais também disponíveis em português</em>
+	</li>
+	<!-- 
+<li>
+		<a href="http://tinmegali.com/my-libs/simple-mvp/javadoc/">
+			Using MVP library
+		</a>
+	</li>
+ -->
+	<li>
+		<a href="http://tinmegali.com/my-libs/simple-mvp/javadoc/">
+			JavaDoc
+		</a>
+	</li>
+</ul>
+
+<h3>Quick install</h3>
+<ol>
+	<li>
+		add <em>build.gradle</em> <pre>compile 'com.tinmegali.mvp:mvp:0.0.4'</pre>
+	</li>
+	<li>
+		Create interfaces to communicate between MVP layers
+		<ul>
+			<li>
+				<code>interface RequiredViewOps extends ActivityView</code> 
+				<br/>with VIEW methods to be accessed by PRESENTER
+			</li>
+			<li>
+				<code>interface ProvidedPresenterOps extends PresenterOps<RequiredViewOps></code> 
+				<br/>Operations offered to VIEW to communicate with PRESENTER
+			</li>
+			<li>
+				<code>interface RequiredPresenterOps</code> 
+				<br/>with Required PRESENTER methods available to MODEL
+			</li>
+			<li>
+				<code>interface ProvidedModelOps extends ModelOps<RequiredPresenterOps></code> 
+				<br/>Operations offered to MODEL to communicate with PRESENTER
+			</li>
+		</ul>
+	</li>
+	<li>
+		Implement MVP objects extending its generics
+		<ul>
+			<li> MODEL from Model View Presenter (MVP) pattern. </br>
+				<code>
+					class MODEL 
+						extends GenericModel<MVP_MainActivity.RequiredPresenterOps>
+        implements MVP_MainActivity.ProvidedModelOps
+        		</code>
+			</li>
+			
+			<li>VIEW layer of MVP pattern <br/>
+				<code>
+					class VIEW_Activity extends GenericMVPActivity<MVP_MainActivity.RequiredViewOps,
+						MVP_MainActivity.ProvidedPresenterOps,
+                    	MainPresenter> 
+                    implements MVP_MainActivity.RequiredViewOps
+				</code> <br />
+				<em>Could also extend <code>GenericMVPFragment</code></em>
+			</li>
+			
+			<li>PRESENTER from Model View Presenter (MVP) Pattern. <br/>
+				<code>
+					class MainPresenter extends GenericPresenter<MVP_MainActivity.RequiredPresenterOps,
+						MVP_MainActivity.ProvidedModelOps, MVP_MainActivity.RequiredViewOps, MainModel>
+					implements
+            			MVP_MainActivity.RequiredPresenterOps,
+            			MVP_MainActivity.ProvidedPresenterOps
+				</code>
+			</li>
+			
+		</ul>
+	</li>
+</ol>
+
+<h2>Instalação rápida</h2> 
   <ul>
       <li>
           Crie as interfaces de comunicação entre os módulos View, Presenter e Model
