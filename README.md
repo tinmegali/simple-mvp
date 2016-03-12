@@ -1,7 +1,7 @@
 <h1>Android-Model-View-Presenter-MVP</h1>
 
 <p>
-A Model View Presenter Library using plain and simple canonical form,
+A Model View Presenter Library using plain and interfaces,
 based on concept from 
 <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc"> 
 Dr. Douglas Schmidt</a>
