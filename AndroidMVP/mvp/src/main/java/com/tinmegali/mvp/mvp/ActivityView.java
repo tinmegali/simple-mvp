@@ -11,42 +11,40 @@ import android.view.View;
  * <a href="http://www.tinmegali.com">tinmegali.com</a>
  * <a href="http://www.github.com/tinmegali">github</a>
  * ---------------------------------------------------
- * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
- * framework MVP</a> developed by
- * <a href="https://github.com/douglascraigschmidt">
- * Dr. Douglas Schmidth</a>
- * ---------------------------------------------------
  *
- * Interface que garante acesso ao Presenter acesso aos contextos
- * e outros métodos obrigatórios em todas as atividades que fazem
- * parte do framework MVP.
- * Deve ser aplicada somente à Atividades
+ * Interface to be implemented by the Activity,
+ * contains some basic common feedback operations
  */
-
 
 public interface ActivityView extends ContextView {
 
     /**
-     * Exibe Toast na Atividade com tempo curto
+     * Shows a toast in the Activity with a short time
+     * @param msg   Message to show
      */
     void onShowToast(String msg);
 
     /**
-     * Exibe Toast na Atividade com tempo personalizado
-     * @param duration  duração do tipo:
+     * Shows a {@link android.widget.Toast} in the Activity with custom time
+     * @param msg       Message to show
+     * @param duration  Time Length
      *                      {@link android.widget.Toast#LENGTH_SHORT}
      *                      {@link android.widget.Toast#LENGTH_LONG}
      */
     void onShowToast(String msg, int duration);
 
     /**
-     * Exibe Snackbar na Atividade com tempo curto
+     * Shows a {@link Snackbar} in Activity with a short time
+     * @param msg         Snackbar message
+     * @param parentView  Snackbar parent view
      */
     void onShowSnackbar(String msg, View parentView);
 
     /**
-     * Exibe Snackbar na Atividade com tempo personalizado
-     * @param duration  duração do tipo:
+     * Shows a {@link Snackbar} in Activity with custom time
+     * @param msg         Snackbar message
+     * @param parentView  Snackbar parent view
+     * @param duration    Time Length
      *                      {@link Snackbar#LENGTH_SHORT}
      *                      {@link Snackbar#LENGTH_LONG}
      *                      {@link Snackbar#LENGTH_INDEFINITE}
@@ -55,7 +53,9 @@ public interface ActivityView extends ContextView {
 
 
     /**
-     * Exibe snackbar recebida
+     * Shows a given {@link Snackbar}.
+     * Useful for snacks with custom actions.
+     * @param snackbar  The Snackbar to show
      */
     void onShowSnackbar(Snackbar snackbar);
 }

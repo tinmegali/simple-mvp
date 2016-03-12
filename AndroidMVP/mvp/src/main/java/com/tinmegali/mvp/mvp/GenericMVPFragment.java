@@ -19,19 +19,21 @@ import java.lang.ref.WeakReference;
  */
 
 /**
- * Fragmento genérico, que funciona como um framework mediando o acesso
- * com o Presenter no padrão Model View Presenter (MVP), além de lidar
- * com operações de ciclo de vida.
+ * Generic Abstract Fragment.
+ * Works as a VIEW layer in the MVP pattern.
+ * Responsible to initialize the PRESENTER and to maintain
+ * it synchronized with Activity lifecycle changes.
+ * IMPORTANT: View Object should implement {@param RequiredViewOps}
  *
- * @param <RequiredActivityOps>      classe ou interface que define operações
- *                                      obrigatórias para comunicação com Activity
- * @param <RequiredViewOps>         classe ou interface que define
- *                                      operações a serem implementadas pela View
- * @param <ProvidedPresenterOps>    classe ou interface que define
- *                                      operações oferecidas pelo Presenter
- * @param <PresenterType>           Objeto Presenter
+ * @param <RequiredActivityOps>  Interface that define operation to be executed
+ *                             on the Activity
+ * @param <RequiredViewOps> Interface with available
+ *                         VIEW methods available to PRESENTER
+ * @param <ProvidedPresenterOps> Interface with available
+ *                              PRESENTER methods available to VIEW
+ * @param <PresenterType> PRESENTER Object to be instantiated by the VIEW
  */
-public class GenericMVPFragment<
+public abstract class GenericMVPFragment<
         RequiredActivityOps,
         RequiredViewOps,
         ProvidedPresenterOps,
@@ -41,17 +43,20 @@ public class GenericMVPFragment<
 
     protected final String TAG = getClass().getSimpleName();
 
-    // Presenter
+    // PRESENTER reference
     private PresenterType mPresenterInstance;
 
-    // Responsável por manter estado dos objetos inscritos
-    // durante mudanças de configuração
+    // Responsible to maintain objects state between config changes
     protected StateMaintainer mStateMaintainer;
 
-    // Interface de operaçãoes frag -> Activity
+    // Activity operations available
     protected WeakReference<RequiredActivityOps> mActivity;
 
-
+    /**
+     * Subscribes onAttach to get a reference from current Activity
+     * and its available operations to Fragment
+     * @param context   Activity context
+     */
     @SuppressWarnings("unchecked")
     @Override
     public void onAttach(Context context) {
@@ -59,15 +64,16 @@ public class GenericMVPFragment<
         try {
             mActivity = new WeakReference<>( (RequiredActivityOps) getActivity() );
         } catch (ClassCastException e) {
-            throw new ClassCastException("Activity must implement RequiredActivityOps" );
+            throw new ClassCastException("Activity must implement <RequiredActivityOps>" );
         }
     }
 
     /**
-     * Inicia e reinicia o Presenter. Este método precisa ser chamado
-     * após {@link Activity#onCreate(Bundle)}
-     * @param opsType   Classe utilizada para criar o Presenter
-     * @param view      Referência no Presenter para {@link RequiredViewOps}
+     * Hook method to initialize PRESENTER. Needs to be called in
+     * {@link Fragment#onCreate(Bundle)}.
+     *
+     * @param opsType   PRESENTER Object class
+     * @param view      Interface with VIEW reference to PRESENTER
      */
     public void onCreate(Class<PresenterType> opsType, RequiredViewOps view ) {
         if ( mStateMaintainer == null)
@@ -88,24 +94,26 @@ public class GenericMVPFragment<
     }
 
     /**
-     * Retorna o layer Presenter já inicializado
+     * Gets PRESENTER layer
+     * @return  PRESENTER instance with operation availabe to VIEW
      */
     @SuppressWarnings("unchecked")
     public ProvidedPresenterOps getPresenter() { return (ProvidedPresenterOps) mPresenterInstance; }
 
     /**
-     * Retorna instância do StateMaintainer
+     * @return State Maintainer instance
      */
     public StateMaintainer getStateMaintainer() { return mStateMaintainer; }
 
 
     /**
-     * Inicializa os objetos relevantes para o MVP.
-     * Cria uma instância do Presenter, salva o presenter
-     * no {@link StateMaintainer} e informa à instância do
-     * presenter que objeto foi criado.
-     * @param opsType   Classe do presenter, para criação da instância
-     * @param view      Operações no View exigidas pelo Presenter
+     * Initialize PRESENTER layer.
+     * Creates a new instance of the PRESENTER,
+     * saves in the StateMaintainer and call {@link GenericPresenter#onCreate(Object)}
+     * hook method.
+     *
+     * @param opsType   PRESENTER Object Class type
+     * @param view      Current VIEW instance
      */
     private void initialize( Class<PresenterType> opsType, RequiredViewOps view )
             throws java.lang.InstantiationException, IllegalAccessException{
@@ -118,9 +126,13 @@ public class GenericMVPFragment<
     }
 
     /**
-     * Recupera o presenter e informa à instância que houve uma mudança
-     * de configuração no View.
-     * Caso o presenter tenha sido perdido, uma nova instância é criada
+     * Recovers the PRESENTER and informs its instance that a
+     * configuration change occurred, passing a VIEW reference
+     * one more time.
+     * Case the PRESENTER has been lost, another instance is created.
+     *
+     * @param opsType   PRESENTER Object Class type
+     * @param view      Current VIEW instance
      */
     private void reinitialize( Class<PresenterType> opsType, RequiredViewOps view)
             throws java.lang.InstantiationException, IllegalAccessException {
@@ -134,13 +146,16 @@ public class GenericMVPFragment<
     }
 
     /**
-     * Retorna contextos
+     * @return Activity Context
      */
     @Override
     public Context getActivityContext() {
         return getActivity();
     }
 
+    /**
+     * @return Application Context
+     */
     @Override
     public Context getApplicationContext() {
         return getActivity().getApplicationContext();

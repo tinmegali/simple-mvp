@@ -20,54 +20,60 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 /**
- * Classe base implementada por todos objetos Presenter.
+ * Abstract class of PRESENTER layer on MVP pattern.
+ * Should be extended by any PRESENTER object
+ * IMPORTANT: PRESENTER pbject should implement
+ *  RequiredPresenterOps and ProvidedModelOps
  *
- * @param <RequiredPresenterOps>    interface a ser implementada, que contém
- *                                  requisitados pelo layer Model, para permitir
- *                                  a comunicação Model -> Presenter
+ * @param <RequiredPresenterOps>Interface with available PRESENTER
+ *                              operation to the MODEL layer
  *
- * @param <ProvidedModelOps>        interface com métodos fornecidos pelo layer Model
- *                                  que permite a comunicação Presenter -> Model
+ * @param <ProvidedModelOps>    Interface with available MODEL
+ *                              operations available to PRESENTER
  *
- * @param <ModelType>               objeto Classe do Model, para permitir ao Presenter
- *                                  instanciar um objeto deste tipo
+ * @param <RequiredViewOps>     Interface with available VIEW
+ *                              operations available to PRESENTER
+ *
+ * @param <ModelType>           MODEL object to be instantiated by
+ *                              the PRESENTER
  */
+
 public abstract class GenericPresenter
         <RequiredPresenterOps,
                 ProvidedModelOps, RequiredViewOps,
                 ModelType extends ModelOps<RequiredPresenterOps> >
-        implements PresenterOps<RequiredViewOps>{
+        implements PresenterOps<RequiredViewOps>
+{
 
 
     protected final String TAG = getClass().getSimpleName();
 
-    // matém o tipo de destruição que está ocorrendo na Atividade
-    // Se é definitiva ou devido à alteração de configuração
+    // Reference to the destruction kind that is occurring in VIEW
     private boolean mConfigurationChangeOccurred;
 
-    // informa se a Atividade está ativa
+    // Informs if VIEW is active
     private boolean mIsRunning;
 
-    // Referência para operações em View
+    // Reference to VIEW operations
     private WeakReference<RequiredViewOps> mView;
 
-    // objeto Classe para instanciar o Model
+    // MODEL object to be instantiated
     private ModelType mOpsInstance;
 
     /**
-     * Método chamado pelo Presenter durante sua criação.
-     * Deve a primeira operação a ser chamado na subscrição
-     * do método {@link PresenterOps#onCreate(Object)}
+     * Method that NEEDS TO BE CALLED by the PRESENTER object
+     * in the {@link PresenterOps#onCreate(Object)} method.
+     * Initialize MODEL and PRESENTER.
      *
-     * @param opsType   obj Classe do Model
-     * @param presenter interface fornecida pelo Presenter
-     *                  para possibilitar comunicação com Model
+     * @param opsType   Class of the MODEL object
+     * @param presenter Interface with provided PRESENTER operations
+     *                  available to MODEL
      */
     public void onCreate( Class<ModelType> opsType, RequiredPresenterOps presenter ) {
         mIsRunning = true;
         mConfigurationChangeOccurred = false;
         try {
-            // inicializa o objeto Model
+            // initialized MODEL
             initialize( opsType, presenter );
         } catch ( InstantiationException | IllegalAccessException e ) {
             Log.d(TAG, "handleConfiguration " + e);
@@ -76,34 +82,35 @@ public abstract class GenericPresenter
     }
 
     /**
-     * Define referência para operações no layer View
-     * Deve ser chamado em {@link PresenterOps#onCreate(Object)}
-     * @param view  Referência para operações Presenter -> View
+     * Define a VIEW reference available to PRESENTER.
+     * Should be called i {@link PresenterOps#onCreate(Object)}
+     *
+     * @param view  VIEW operations available to PRESENTER
      */
     public void setView(RequiredViewOps view) {
         mView = new WeakReference<>(view);
     }
 
     /**
-     * Recupera referência View
-     * @return  Operações disponíveis em View ou null,
-     *          caso a View não esteja rodando ou passando por reconfig.
+     * Recovers the VIEW reference, returning NULL if layers isn't available.
+     * @return  VIEW reference or NULL
      */
     public RequiredViewOps getView() {
         if ( mIsRunning && !mConfigurationChangeOccurred && mView != null) {
             return mView.get();
         } else  {
-            Log.w(TAG, "View indisponível.");
+            Log.w(TAG, "View unavailable.");
             return null;
         }
     }
 
     /**
-     * primeiro método a ser chamado pelo Presenter
-     * durante {@link PresenterOps#onDestroy(boolean)}
+     * Hook method informing of destruction of the VIEW.
+     * Should be subscribed by the PRESENTER object and called by itself
+     * as a super method.
      *
-     * @param isChangingConfiguration   informa se a destruição se
-     *                                  deve em função de mudança de configuração
+     * @param isChangingConfiguration   true: VIEW changing configuration
+     *                                  false: VIEW being destroyed
      */
     public void onDestroy(boolean isChangingConfiguration) {
         mIsRunning = isChangingConfiguration;
@@ -113,25 +120,26 @@ public abstract class GenericPresenter
 
 
     /**
-     * Informa o estado atual de View
-     * @return  true se está rodando
+     * Informs actual VIEW state
+     * @return  true: VIEW is active
+     *          false: VIEW is destroyed
      */
     public boolean isViewRunning() { return mIsRunning; }
 
     /**
-     * informa se ocorreu uma mudança de configuração
-     * @return  true se ocorreu uma mudança
+     * Informs if occurred a configuration change
+     * @return  true: a configuration change occured
      */
     public boolean configurationsOccurred() { return mConfigurationChangeOccurred; }
 
 
     /**
-     * Inicializa o objeto Model, criando um
-     * nova instância e iniciando em Model as operação
+     * Initialized the MODEL object, creating a new MODEL instance
      *
-     * @param opsType   obj Classe para nova instância
-     * @param presenter interface fornecida pelo Presenter
-     *                  para comunicação Model -> Presenter
+     * @param opsType   MODEL object Class
+     * @param presenter Interface given to MODEL with available
+     *                  PRESENTER operations
+     *                         MODEL -> PRESENTER
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
@@ -143,8 +151,8 @@ public abstract class GenericPresenter
     }
 
     /**
-     * Retorna operações disponível em Model
-     * @return  uma instância do objeto Model
+     * Returns available MODEL methods
+     * @return  a MODEL object instance
      */
     @SuppressWarnings("unchecked")
     public ProvidedModelOps getModel() { return (ProvidedModelOps) mOpsInstance; }

@@ -16,14 +16,20 @@ import android.content.Context;
  *     Dr. Douglas Schmidth</a>
  * ---------------------------------------------------
  *
- * Interface que garante acesso ao Presenter acesso aos contextos.
- * Deve ser aplicada às Atividades, Fragments e outros tipos de View,
- * dependendo da organização do projeto.
+ * Interface that grants access to Contexts
  */
 
 public interface ContextView {
 
+    /**
+     * Access to application {@link Context}
+     * @return  application context
+     */
     Context getApplicationContext();
 
+    /**
+     * Access to current activity {@link Context}
+     * @return  activity context
+     */
     Context getActivityContext();
 }

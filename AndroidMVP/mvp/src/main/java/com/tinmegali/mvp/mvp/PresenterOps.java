@@ -17,41 +17,55 @@ package com.tinmegali.mvp.mvp;
 
 
 /**
- * Interface Base que todos objetos Presenter precisam implementar.
- * Os métodos são chamados pela View e garantem uma sincronização
- * correta entre estes layers.
+ * Interface implemented by {@link GenericPresenter}. Contains
+ * initializing and destruction methods called by VIEW layer in
+ * the PRESENTER. Garantes the correct synchronization of MVP
+ * with Activity lifecycle.
  *
- * @param <RequiredViewOps> interface contendo os métodos implementados
- *                         em View para comunicação com o Presenter
+ * @param <RequiredViewOps> VIEW layer reference. Interface containing
+ *                         operations available to PRESENTER
  *
  */
 public interface PresenterOps<RequiredViewOps> {
 
     /**
-     * Método chamado pela {@link GenericMVPActivity} para inicializar
-     * um operação.
-     * @param view  A instância atual
+     * Initialization method.
+     * Called by initialization methods in VIEW, like
+     *  {@link GenericMVPActivity#initialize(Class, Object)}
+     *  {@link GenericMVPFragment#initialize(Class, Object)}.
+     * Pass the VIEW reference with available operations to PRESENTER.
+     * @param view  Current VIEW instance reference,
+     *              with operations available
      */
     void onCreate(RequiredViewOps view);
 
     /**
-     * Método disparado pela {@link GenericMVPActivity} para atualizar
-     * as operação de View.
-     * @param view  A instância atual
+     * Hook method called every time the VIEW change its configuration.
+     * Called by reinitialization methods in VIEW, like
+     *  {@link GenericMVPActivity#reinitialize(Class, Object)}
+     *  {@link GenericMVPFragment#reinitialize(Class, Object)}
+     * Responsible to send a new reference to the VIEW layer with operations
+     * available to PRESENTER.
+     *
+     * @param view  New VIEW instance reference
      */
     void onConfigurationChange(RequiredViewOps view);
 
     /**
-     * Disparado na destruição dos objetos. Utilizado pelo Presenter
-     * para manter um mapeamento correto do ciclo de vida dos objetos
-     * @param isChangingConfiguration   Informa se a destruição é devida
-     *                                  a uma mudança de configuração ou
-     *                                  é absoluta
+     * Hook method called when the VIEW is being destroyed or
+     * having its configuration changed.
+     * Responsible to maintain MVP synchronized with Activity lifecycle.
+     * Called by onDestroy methods of the VIEW layer, like:
+     *  {@link GenericMVPActivity#onDestroy()}
+     *  {@link GenericMVPFragment#onDestroy()}
+     *
+     * @param isChangingConfiguration   true: configuration changing
+     *                                  false: being destroyed
      */
     void onDestroy(boolean isChangingConfiguration);
 
     /**
-     * Disparado pela {@link GenericMVPActivity} para informar um evento onBackPressed
+     * OnBack pressed Event, called by the VIEW.
      */
     void onBackPressed();
 }

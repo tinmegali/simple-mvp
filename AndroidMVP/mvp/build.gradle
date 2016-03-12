@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:design:23.2.0'
+}
+
+
+group = 'com.tinmegali.mvp' // Change this to match your package name
+version = '0.0.3' // Change this to match your version number
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+
+task generateJavaDocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath()
+            .join(File.pathSeparator))
+    failOnError false
+}
+
+task generateJavaDocsJar(type: Jar, dependsOn: generateJavaDocs) {
+    from generateJavaDocs.destinationDir
+    classifier 'javadoc'
+}
+
+bintray {
+    user = BINRAY_USER
+    key = BINRAY_KEY
+    pkg {
+        repo = 'maven'
+        name = BINRAY_NAME
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/tinmegali'
+        websiteUrl = 'https://github.com/tinmegali'
+    }
+    configurations = ['archives']
+}
+
+artifacts {
+    archives generateJavaDocsJar
+
+    archives generateSourcesJar
+}

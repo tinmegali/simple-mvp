@@ -22,19 +22,17 @@ import android.util.Log;
 
 import com.tinmegali.mvp.ActivityKeyBoardDetector;
 /**
- * Atividade genérica, que funciona como um framework mediando o acesso
- * com o Presenter no padrão Model View Presenter (MVP), além de lidar
- * com operações de ciclo de vida. Implementa {@link ContextView},
- * garantindo ao Presenter acesso aos contextos.
- * Extende {@link com.tinmegali.mvp.ActivityKeyBoardDetector}, adicionando funções de
- * para detectar presença do softKeyboard na tela
+ * Generic Abstract Activity.
+ * Works as a VIEW layer in the MVP pattern.
+ * Responsible to initialize the PRESENTER and to maintain
+ * it synchronized with Activity lifecycle changes.
+ * IMPORTANT: View Object should implement {@param RequiredViewOps}
  *
- * @param <RequiredViewOps> classe ou interface que define
- *     os métodos do Presenter disponíveis para o layer View
- * @param <ProvidedPresenterOps> classe ou interface que
- *     define os métodos do View disponíveis para o Presenter.
- * @param <PresenterType> a classe utilizada pelo framework
- *     para implementar um objeto Presenter
+ * @param <RequiredViewOps> Interface with available
+ *                         VIEW methods available to PRESENTER
+ * @param <ProvidedPresenterOps> Interface with available
+ *                              PRESENTER methods available to VIEW
+ * @param <PresenterType> PRESENTER Object to be instantiated by the VIEW
  */
 public abstract class GenericMVPActivity
                 <RequiredViewOps,
@@ -45,27 +43,27 @@ public abstract class GenericMVPActivity
 
     protected final String TAG = getClass().getSimpleName();
 
-    // Responsável por manter estado dos objetos inscritos
-    // durante mudanças de configuração
+    // Responsible to maintain objects state between config changes
     protected final StateMaintainer mStateMaintainer =
             new StateMaintainer( this.getFragmentManager(), TAG );
 
-    // Presenter
+    // PRESENTER reference
     private PresenterType mPresenterInstance;
 
     /**
-     * Inicia e reinicia o Presenter. Este método precisa ser chamado
-     * após {@link Activity#onCreate(Bundle)}
-     * @param opsType   Classe utilizada para criar o Presenter
-     * @param view      Referência no Presenter para {@link RequiredViewOps}
+     * Hook method to initialize PRESENTER. Needs to be called in
+     * {@link Activity#onCreate(Bundle)}.
+     *
+     * @param opsType   PRESENTER Object class
+     * @param view      Interface with VIEW reference to PRESENTER
      */
     public void onCreate(Class<PresenterType> opsType, RequiredViewOps view ) {
         try {
             if ( mStateMaintainer.firstTimeIn() ) {
-                Log.d(TAG, "onCreate() chamado pela primera vez");
+                Log.d(TAG, "onCreate() calling for the first time.");
                 initialize(opsType, view);
             } else {
-                Log.d(TAG, "onCreate() chamado mais de uma vez");
+                Log.d(TAG, "onCreate() calling more then once.");
                 reinitialize(opsType, view);
             }
         } catch ( InstantiationException | IllegalAccessException e ) {
@@ -75,24 +73,28 @@ public abstract class GenericMVPActivity
     }
 
     /**
-     * Retorna o layer Presenter já inicializado
+     * Gets PRESENTER layer
+     * @return  PRESENTER instance with operation availabe to VIEW
      */
     @SuppressWarnings("unchecked")
     public ProvidedPresenterOps getPresenter() { return (ProvidedPresenterOps) mPresenterInstance; }
 
     /**
-     * Retorna instância do StateMaintainer
+     * @return State Maintainer instance
      */
     public StateMaintainer getStateMaintainer() { return mStateMaintainer; }
 
     /**
-     * Retorna contextos
+     * @return Activity Context
      */
     @Override
     public Context getActivityContext() {
         return this;
     }
 
+    /**
+     * @return Application Context
+     */
     @Override
     public Context getApplicationContext() {
         return super.getApplicationContext();
@@ -100,12 +102,13 @@ public abstract class GenericMVPActivity
 
 
     /**
-     * Inicializa os objetos relevantes para o MVP.
-     * Cria uma instância do Presenter, salva o presenter
-     * no {@link StateMaintainer} e informa à instância do
-     * presenter que objeto foi criado.
-     * @param opsType   Classe do presenter, para criação da instância
-     * @param view      Operações no View exigidas pelo Presenter
+     * Initialize PRESENTER layer.
+     * Creates a new instance of the PRESENTER,
+     * saves in the StateMaintainer and call {@link GenericPresenter#onCreate(Object)}
+     * hook method.
+     *
+     * @param opsType   PRESENTER Object Class type
+     * @param view      Current VIEW instance
      */
     private void initialize( Class<PresenterType> opsType, RequiredViewOps view )
             throws InstantiationException, IllegalAccessException{
@@ -118,9 +121,13 @@ public abstract class GenericMVPActivity
     }
 
     /**
-     * Recupera o presenter e informa à instância que houve uma mudança
-     * de configuração no View.
-     * Caso o presenter tenha sido perdido, uma nova instância é criada
+     * Recovers the PRESENTER and informs its instance that a
+     * configuration change occurred, passing a VIEW reference
+     * one more time.
+     * Case the PRESENTER has been lost, another instance is created.
+     *
+     * @param opsType   PRESENTER Object Class type
+     * @param view      Current VIEW instance
      */
     private void reinitialize( Class<PresenterType> opsType, RequiredViewOps view)
             throws InstantiationException, IllegalAccessException {
