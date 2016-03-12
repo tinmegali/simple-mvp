@@ -4,16 +4,17 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 
 /**
- * ---------------------------------------------------
- * Created by Tin Megali on 25/02/16.
- * Project: AndroidMVP
- * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com</a>
- * <a href="http://www.github.com/tinmegali">github</a>
- * ---------------------------------------------------
- *
+ * <p>
  * Interface to be implemented by the Activity,
  * contains some basic common feedback operations
+ * </p>
+ * <p>
+ * Created by Tin Megali on 24/02/16. <br/>
+ * Project: AndroidMVP <br/>
+ *
+ * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
+ *
+ * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
  */
 
 public interface ActivityView extends ContextView {

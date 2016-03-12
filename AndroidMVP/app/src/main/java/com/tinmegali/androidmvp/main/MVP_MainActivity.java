@@ -115,42 +115,38 @@ import com.tinmegali.mvp.mvp.PresenterOps;
 public interface MVP_MainActivity {
 
     /**
-     * Required View methods available to Presenter
-     *      Presenter -> View
+     * Required VIEW methods available to PRESENTER
+     *      PRESENTER to VIEW
      *
-     * Métodos obrigatórios em View, disponíveis para Presenter
-     *      Presenter -> View
+     * Métodos obrigatórios em VIEW, disponíveis para PRESENTER
      */
     interface RequiredViewOps extends ActivityView {
     }
 
 
     /**
-     * Operations offered to View to communicate with Presenter
-     *      View -> Presenter
+     * Operations offered to VIEW to communicate with PRESENTER
+     *      VIEW to PRESENTER
      *
-     * operações oferecidas ao layer View para comunicação com Presenter
-     *      View -> Presenter
+     * operações oferecidas ao layer VIEW para comunicação com PRESENTER
      */
     interface ProvidedPresenterOps extends PresenterOps<RequiredViewOps> {
     }
 
     /**
-     * Required Presenter methods available to Model
-     *      Model -> Presenter
+     * Required PRESENTER methods available to MODEL
+     *      MODEL to PRESENTER
      *
-     * operações oferecidas pelo layer Presenter para comunicações com Model
-     *      Model -> Presenter
+     * operações oferecidas pelo layer PRESENTER para comunicações com MODEL
      */
     interface RequiredPresenterOps {
     }
 
     /**
-     * Operations offered to Model to communicate with Presenter
-     *      Presenter -> Model
+     * Operations offered to MODEL to communicate with PRESENTER
+     *      PRESENTER to MODEL
      *
-     * operações oferecidos pelo layer Model para comunicações com Presenter
-     *      Presenter -> Model
+     * operações oferecidos pelo layer MODEL para comunicações com PRESENTER
      */
     interface ProvidedModelOps extends ModelOps<RequiredPresenterOps> {
     }

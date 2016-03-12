@@ -29,7 +29,7 @@ dependencies {
 
 
 group = 'com.tinmegali.mvp' // Change this to match your package name
-version = '0.0.3' // Change this to match your version number
+version = '0.0.4' // Change this to match your version number
 
 task generateSourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -55,6 +55,12 @@ bintray {
     pkg {
         repo = 'maven'
         name = BINRAY_NAME
+
+        version {
+            name = '0.1.1'
+            desc = 'MVP Framework'
+            vcsTag = '0.1.1'
+        }
 
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/tinmegali/Android-Model-View-Presenter-MVP.git'

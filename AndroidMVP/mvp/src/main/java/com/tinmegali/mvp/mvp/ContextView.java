@@ -3,20 +3,23 @@ package com.tinmegali.mvp.mvp;
 import android.content.Context;
 
 /**
- * ---------------------------------------------------
- * Created by Tin Megali on 24/02/16.
- * Project: AndroidMVP
- * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com</a>
- * <a href="http://www.github.com/tinmegali">github</a>
- * ---------------------------------------------------
+ * <p>Interface that grants access to Contexts</p>
+ * <p>
+ * Created by Tin Megali on 24/02/16. <br/>
+ * Project: AndroidMVP <br/>
+ *
+ * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
+ * </p>
+ * --------------------------------------------------- <br/>
+ * <p>
  * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
  *     framework MVP</a> developed by
  * <a href="https://github.com/douglascraigschmidt">
  *     Dr. Douglas Schmidth</a>
- * ---------------------------------------------------
+ * </p>
  *
- * Interface that grants access to Contexts
+ * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
+ *
  */
 
 public interface ContextView {

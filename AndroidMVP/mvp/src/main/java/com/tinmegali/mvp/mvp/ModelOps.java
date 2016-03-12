@@ -1,25 +1,33 @@
 package com.tinmegali.mvp.mvp;
 
 /**
- * ---------------------------------------------------
- * Created by Tin Megali on 25/02/16.
- * Project: AndroidMVP
- * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com</a>
- * <a href="http://www.github.com/tinmegali">github</a>
- * ---------------------------------------------------
- * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
- * framework MVP</a> developed by
- * <a href="https://github.com/douglascraigschmidt">
- * Dr. Douglas Schmidth</a>
- * ---------------------------------------------------
- */
-
-/**
- * Interface implemented by {@link GenericModel}. Contains
+ * <p>
+ * Interface implemented by {@link GenericModel}. <br/>
+ * Contains
  * initializing and destruction methods called by VIEW layer in
  * all MVP objects. Garantes the correct synchronization of MVP
  * with Activity lifecycle.
+ * </p>
+ * <strong>IMPORTANT: View Object should implement <code> RequiredViewOps </code></strong>
+ * </p>
+ *
+ * </p>
+ * <p>
+ * Created by Tin Megali on 24/02/16. <br/>
+ * Project: AndroidMVP <br/>
+ *
+ * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
+ * </p>
+ * --------------------------------------------------- <br/>
+ * <p>
+ * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
+ *     framework MVP</a> developed by
+ * <a href="https://github.com/douglascraigschmidt">
+ *     Dr. Douglas Schmidth</a>
+ * </p>
+ *
+ * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
+ *
  *
  * @param <RequiredPresenterOps>    PRESENTER operations available to MODEL
  *                              Acts as a callback to data operations.

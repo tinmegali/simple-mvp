@@ -1,26 +1,30 @@
 package com.tinmegali.mvp.mvp;
 
 /**
- * ---------------------------------------------------
- * Created by Tin Megali on 24/02/16.
- * Project: AndroidMVP
- * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com</a>
- * <a href="http://www.github.com/tinmegali">github</a>
- * ---------------------------------------------------
- * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
- * framework MVP</a> developed by
- * <a href="https://github.com/douglascraigschmidt">
- * Dr. Douglas Schmidth</a>
- * ---------------------------------------------------
- */
-
-
-/**
+ * <p>
  * Interface implemented by {@link GenericPresenter}. Contains
  * initializing and destruction methods called by VIEW layer in
  * the PRESENTER. Garantes the correct synchronization of MVP
  * with Activity lifecycle.
+ * </p>
+ * </p>
+ * <strong>IMPORTANT: View Object should implement <code> RequiredViewOps </code></strong>
+ * </p>
+ *
+ * </p>
+ * <p>
+ * Created by Tin Megali on 24/02/16. <br/>
+ * Project: AndroidMVP <br/>
+ *
+ * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
+ * </p>
+ * --------------------------------------------------- <br/>
+ * <p>
+ * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
+ *     framework MVP</a> developed by
+ * <a href="https://github.com/douglascraigschmidt">
+ *     Dr. Douglas Schmidth</a>
+ * </p>
  *
  * @param <RequiredViewOps> VIEW layer reference. Interface containing
  *                         operations available to PRESENTER

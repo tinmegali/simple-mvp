@@ -9,21 +9,22 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 /**
- * ---------------------------------------------------
- * Created by Tin Megali on 01/03/16.
- * Project: AndroidMVP
- * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com"</a>
- * <a href="http://www.github.com/tinmegali>github</a>
- * ---------------------------------------------------
- */
-
-/**
+ * <p>
  * Generic Abstract Fragment.
- * Works as a VIEW layer in the MVP pattern.
+ * Works as a VIEW layer in the MVP pattern. <br/>
  * Responsible to initialize the PRESENTER and to maintain
- * it synchronized with Activity lifecycle changes.
- * IMPORTANT: View Object should implement {@param RequiredViewOps}
+ * it synchronized with Activity lifecycle changes. <br/>
+ * <strong>IMPORTANT: View Object should implement <code>RequiredViewOps</code></strong>
+ * </p>
+ * </p>
+ * <p>
+ * Created by Tin Megali on 24/02/16. <br/>
+ * Project: AndroidMVP <br/>
+ *
+ * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
+ * </p>
+ *
+ * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
  *
  * @param <RequiredActivityOps>  Interface that define operation to be executed
  *                             on the Activity

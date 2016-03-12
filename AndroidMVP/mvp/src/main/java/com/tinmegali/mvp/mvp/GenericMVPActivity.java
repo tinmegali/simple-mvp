@@ -1,32 +1,37 @@
 package com.tinmegali.mvp.mvp;
 
-/**
- * ---------------------------------------------------
- * Created by Tin Megali on 24/02/16.
- * Project: AndroidMVP
- * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com"</a>
- * <a href="http://www.github.com/tinmegali>github</a>
- * ---------------------------------------------------
- * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
- * framework MVP</a> developed by
- * <a href="https://github.com/douglascraigschmidt">
- * Dr. Douglas Schmidth</a>
- * ---------------------------------------------------
- */
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.tinmegali.mvp.ActivityKeyBoardDetector;
+import com.tinmegali.mvp.util.ActivityKeyBoardDetector;
 /**
+ * <p>
  * Generic Abstract Activity.
- * Works as a VIEW layer in the MVP pattern.
+ * Works as a VIEW layer in the MVP pattern. <br/>
  * Responsible to initialize the PRESENTER and to maintain
- * it synchronized with Activity lifecycle changes.
- * IMPORTANT: View Object should implement {@param RequiredViewOps}
+ * it synchronized with Activity lifecycle changes. <br/>
+ *
+ * <strong>IMPORTANT: View Object should implement <code> RequiredViewOps </code></strong>
+ * </p>
+ *
+ * </p>
+ * <p>
+ * Created by Tin Megali on 24/02/16. <br/>
+ * Project: AndroidMVP <br/>
+ *
+ * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
+ * </p>
+ * --------------------------------------------------- <br/>
+ * <p>
+ * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
+ *     framework MVP</a> developed by
+ * <a href="https://github.com/douglascraigschmidt">
+ *     Dr. Douglas Schmidth</a>
+ * </p>
+ *
+ * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
  *
  * @param <RequiredViewOps> Interface with available
  *                         VIEW methods available to PRESENTER

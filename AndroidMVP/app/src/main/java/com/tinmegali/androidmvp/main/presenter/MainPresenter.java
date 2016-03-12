@@ -2,26 +2,36 @@ package com.tinmegali.androidmvp.main.presenter;
 
 import com.tinmegali.androidmvp.main.MVP_MainActivity;
 import com.tinmegali.androidmvp.main.model.MainModel;
+import com.tinmegali.mvp.mvp.GenericMVPActivity;
 import com.tinmegali.mvp.mvp.GenericPresenter;
 
 /**
- * ---------------------------------------------------
- * Created by Tin Megali on 25/02/16.
- * Project: AndroidMVP
- * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com</a>
- * <a href="http://www.github.com/tinmegali>github</a>
- * ---------------------------------------------------
- * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
- * framework MVP</a> developed by
- * <a href="https://github.com/douglascraigschmidt">
- * Dr. Douglas Schmidth</a>
- * ---------------------------------------------------
- *
- * Layer Presenter no padrão Model View Presenter (MVP)
+
+ * <p>
+ * Layer PRESENTER from Model View Presenter (MVP) Pattern. <br/>
+ * Mediates the comunication between layers VIEW and MODEL.
+ * </p>
+ * <p>
+ * Layer Presenter no padrão Model View Presenter (MVP). <br/>
  *
  * Cumpre o papel de mediador entre o layer View (Activity, Frags e uis)
  * e o layer Model (operações de dados).
+ *
+ * @author Tin Megali on 25/02/16. <br/>
+ * Project: AndroidMVP </br>
+ * --------------------------------------------------- <br />
+ * <a href="http://www.tinmegali.com">tinmegali.com</a> <br/>
+ * <a href="http://www.github.com/tinmegali>github</a> <br />
+ * ---------------------------------------------------
+ * <p>
+ * Based on
+ * <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
+ * framework MVP</a> developed by
+ * <a href="https://github.com/douglascraigschmidt">
+ * Dr. Douglas Schmidth</a>
+ * </p>
+ *
+ * </p>
  */
 
 public class MainPresenter
@@ -34,17 +44,20 @@ public class MainPresenter
 {
 
     /**
-     * Operação invocada durante a criação de View em
-     * {@link com.tinmegali.mvp.mvp.GenericMVPActivity#onCreate(Class, Object)}
-     * Responsável por inicializar Model e armazenar referência das
-     * opeações em View.
-     *
-     * 1 - é obrigatório invocar {@link GenericPresenter#onCreate(Class, Object)}
-     * antes de qualquer atividade
-     * 2 - é obrigatório invocar {@link GenericPresenter#setView(Object)}
-     * passando {@param view}
-     *
-     * @param view  A instância atual
+     * Operation called during VIEW creation in
+     * {@link com.tinmegali.mvp.mvp.GenericMVPActivity#onCreate(Class, Object)} </br>
+     * Responsible to initialize MODEL.
+     * <ul>
+     *     <li>
+     *         Always call {@link GenericPresenter#onCreate(Class, Object)} to
+     *         initialize the object
+     *     </li>
+     *     <li>
+     *         Always call  {@link GenericPresenter#setView(Object)} to save a
+     *         <code>RequiredViewOps</code> reference
+     *     </li>
+     * </ul>
+     * @param view  The current VIEW instance
      */
     @Override
     public void onCreate(MVP_MainActivity.RequiredViewOps view) {
@@ -54,11 +67,14 @@ public class MainPresenter
     }
 
     /**
-     * Operação invocada após a reconstrução da View
-     *
-     * 1 - é obrigatório invocar {@link GenericPresenter#setView(Object)}
-     * passando {@param view}
-     * @param view  A instância View atual
+     * Operation called by VIEW after its reconstruction.
+     *<ul>
+     *     <li>
+     *         Always call {@link GenericPresenter#setView(Object)} to
+     *         save the new instance of <code>RequiredViewOps</code>
+     *     </li>
+     *</ul>
+     * @param view  The current VIEW instance
      */
     @Override
     public void onConfigurationChange(MVP_MainActivity.RequiredViewOps view) {
@@ -67,7 +83,8 @@ public class MainPresenter
 
 
     /**
-     * Disparado pela {@link com.tinmegali.mvp.mvp.GenericMVPActivity} para informar um evento onBackPressed
+     * Called by {@link GenericMVPActivity} to inform an
+     * <code>onBackPressed</code> event
      */
     @Override
     public void onBackPressed() {

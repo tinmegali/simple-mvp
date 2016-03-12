@@ -1,4 +1,4 @@
-package com.tinmegali.mvp;
+package com.tinmegali.mvp.util;
 
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -10,13 +10,15 @@ import android.view.ViewTreeObserver;
 import android.widget.Toast;
 
 /**
- * ---------------------------------------------------
- * Created by Tin Megali on 24/02/16.
- * Project: AndroidMVP
- * ---------------------------------------------------
- * <a href="http://www.tinmegali.com">tinmegali.com</a>
- * <a href="http://www.github.com/tinmegali">github</a>
- * ---------------------------------------------------
+ * Created by Tin Megali on 24/02/16. <br/>
+ * Project: AndroidMVP <br/>
+ *
+ * <a href="http://www.tinmegali.com">www.tinmegali.com</a> <br/>
+ * <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
+ * --------------------------------------------------- <br/>
+ * <br/><br/>
+ * Object to add to an Activity the capability to detect the presence
+ * of the SoftKeyboard. <br/>
  *
  */
 public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
@@ -31,7 +33,8 @@ public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
     }
 
     /**
-     * Exibe uma mensagem toast com tempo curto
+     * Shows a toast in the Activity with a short time
+     * @param msg   Message to show
      */
     protected void showToast(String msg) {
         Toast.makeText(
@@ -40,10 +43,11 @@ public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
     }
 
     /**
-     * Exibe uma mensagem toast com tempo curto
-     * @param duration Duração do tosat.
-     *                      {@link Toast#LENGTH_LONG}
-     *                      {@link Toast#LENGTH_SHORT}
+     * Shows a {@link android.widget.Toast} in the Activity with custom time
+     * @param msg       Message to show
+     * @param duration  Time Length
+     *                      {@link android.widget.Toast#LENGTH_SHORT}
+     *                      {@link android.widget.Toast#LENGTH_LONG}
      */
     protected void showToast(String msg, final int duration) {
         Toast.makeText(
@@ -52,8 +56,9 @@ public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
     }
 
     /**
-     * Exibe Snackbar
-     * @param view  View pai
+     * Shows a {@link Snackbar} in Activity with a short time
+     * @param msg         Snackbar message
+     * @param view  Snackbar parent view
      */
     protected void showSnackbar(String msg, View view){
         Snackbar.make(view, msg, Snackbar.LENGTH_SHORT).show();
@@ -61,9 +66,10 @@ public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
 
 
     /**
-     * Exibe Snackbar com tempo personalizado
-     * @param view  View pai
-     * @param duration  duração do tipo:
+     * Shows a {@link Snackbar} in Activity with custom time
+     * @param msg         Snackbar message
+     * @param view  Snackbar parent view
+     * @param duration    Time Length
      *                      {@link Snackbar#LENGTH_SHORT}
      *                      {@link Snackbar#LENGTH_LONG}
      *                      {@link Snackbar#LENGTH_INDEFINITE}
@@ -74,7 +80,9 @@ public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
 
 
     /**
-     * Exibe Snackbar recebida
+     * Shows a given {@link Snackbar}.
+     * Useful for snacks with custom actions.
+     * @param snackbar  The Snackbar to show
      */
     protected void showSnackbar(Snackbar snackbar){
         snackbar.show();
@@ -83,11 +91,13 @@ public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
 
     /**
      * Detecting Layout Root changes
-     * - {@link #startDetectRootViewChanges(View)} must be called on {@link #onCreate(Bundle)}
-     * - Detect if SoftKeyboard is On/Off
-     *      {@link #onKeyBoardOn()} {@link #onKeyBoardOff()}
-     * - Register event for layout changes
-     *      {@link #onRootLayoutChanged(int)}
+     * <ul>
+     * <li>{@link #startDetectRootViewChanges(View)} must be called on {@link #onCreate(Bundle)}</li>
+     * <li>Detect if SoftKeyboard is On/Off
+     *      {@link #onKeyBoardOn()} {@link #onKeyBoardOff()}</li>
+     * <li>Register event for layout changes
+     *      {@link #onRootLayoutChanged(int)}</li>
+     * </ul>
      */
     private View mActivityRootView;
     private ViewTreeObserver.OnGlobalLayoutListener mLayoutListener;
