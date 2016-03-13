@@ -1,5 +1,7 @@
 package com.tinmegali.androidmvp.main.model;
 
+import android.os.AsyncTask;
+
 import com.tinmegali.androidmvp.main.MVP_MainActivity;
 import com.tinmegali.mvp.mvp.GenericModel;
 
@@ -48,5 +50,40 @@ public class MainModel extends GenericModel<MVP_MainActivity.RequiredPresenterOp
     @Override
     public void onDestroy(boolean isChangingConfiguration) {
 
+    }
+
+
+    String mName;
+
+    @Override
+    public void clearName() {
+        mName = null;
+        getPresenter().onNameCleared();
+    }
+
+    @Override
+    public void saveName(final String nameTxt) {
+//        mName = nameTxt;
+//        getPresenter().onNameSaved(mName);
+
+        new AsyncTask<Void, Void, String>() {
+            @Override
+            protected String doInBackground(Void... params) {
+                mName = nameTxt;
+                try {
+                    Thread.sleep(2000);
+                    return mName;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(String name) {
+                if ( name != null)
+                    getPresenter().onNameSaved(name);
+            }
+        }.execute();
     }
 }

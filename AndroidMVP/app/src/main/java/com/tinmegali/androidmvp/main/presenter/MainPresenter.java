@@ -85,4 +85,25 @@ public class MainPresenter
     public void onBackPressed() {
 
     }
+
+
+    @Override
+    public void clickClearName() {
+        getModel().clearName();
+    }
+
+    @Override
+    public void clickSaveName(String nameTxt) {
+        getModel().saveName(nameTxt);
+    }
+
+    @Override
+    public void onNameSaved(String nameTxt) {
+
+    }
+
+    @Override
+    public void onNameCleared() {
+
+    }
 }
