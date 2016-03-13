@@ -150,6 +150,22 @@ public abstract class GenericMVPFragment<
         }
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        ((PresenterOps<RequiredViewOps>)getPresenter())
+                .onDestroy(getActivity().isChangingConfigurations());
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((PresenterOps<RequiredViewOps>)getPresenter())
+                .onDestroy(getActivity().isChangingConfigurations());
+    }
+
     /**
      * @return Activity Context
      */
