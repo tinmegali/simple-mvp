@@ -86,4 +86,9 @@ public class MainModel extends GenericModel<MVP_MainActivity.RequiredPresenterOp
             }
         }.execute();
     }
+
+    // just for tests
+    public String getName(){
+        return mName;
+    }
 }

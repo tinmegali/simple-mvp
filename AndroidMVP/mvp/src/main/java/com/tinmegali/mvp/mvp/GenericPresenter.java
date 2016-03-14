@@ -167,5 +167,4 @@ public abstract class GenericPresenter
      */
     @SuppressWarnings("unchecked")
     public ProvidedModelOps getModel() { return (ProvidedModelOps) mOpsInstance; }
-
 }
