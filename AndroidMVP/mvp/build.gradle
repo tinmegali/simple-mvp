@@ -40,7 +40,7 @@ dependencies {
 
 
 group = 'com.tinmegali.mvp' // Change this to match your package name
-version = '0.0.4' // Change this to match your version number
+version = '0.0.5' // Change this to match your version number
 
 task generateSourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs

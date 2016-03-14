@@ -48,7 +48,7 @@ public abstract class GenericModel<RequiredPresenterOps> implements ModelOps<Req
      */
     @Override
     public void onCreate(RequiredPresenterOps presenterOps) {
-        Log.d(TAG, "onCreate() Model" );
+//        Log.d(TAG, "onCreate() Model" );
         mPresenter = presenterOps;
     }
 
@@ -64,7 +64,7 @@ public abstract class GenericModel<RequiredPresenterOps> implements ModelOps<Req
      */
     @Override
     public void onDestroy(boolean isChangingConfiguration) {
-        Log.d(TAG, "onDestrou(isChangingConfiguration:"+isChangingConfiguration+")");
+//        Log.d(TAG, "onDestrou(isChangingConfiguration:"+isChangingConfiguration+")");
     }
 
     /**

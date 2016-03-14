@@ -54,8 +54,8 @@ public interface MVP_MainActivity {
      *      VIEW to PRESENTER
      */
     interface ProvidedPresenterOps extends PresenterOps<RequiredViewOps> {
-        void clickSaveName(String nameTxt);
-        void clickClearName();
+        boolean clickSaveName(String nameTxt);
+        boolean clickClearName();
     }
 
     /**
@@ -63,8 +63,8 @@ public interface MVP_MainActivity {
      *      MODEL to PRESENTER
      */
     interface RequiredPresenterOps {
-        void onNameSaved(String nameTxt);
-        void onNameCleared();
+        boolean onNameSaved(String nameTxt);
+        boolean onNameCleared();
     }
 
     /**
@@ -72,8 +72,8 @@ public interface MVP_MainActivity {
      *      PRESENTER to MODEL
      */
     interface ProvidedModelOps extends ModelOps<RequiredPresenterOps> {
-        void saveName(String nameTxt);
-        void clearName();
+        boolean saveName(String nameTxt);
+        boolean clearName();
     }
 
 }

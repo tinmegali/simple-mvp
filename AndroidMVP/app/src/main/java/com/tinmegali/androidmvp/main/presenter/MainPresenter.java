@@ -88,32 +88,32 @@ public class MainPresenter
 
 
     @Override
-    public void clickClearName() {
-        clearName();
+    public boolean clickClearName() {
+        return clearName();
     }
 
     // For test purposes
-    public void clearName(){
-        getModel().clearName();
+    public boolean clearName(){
+        return getModel().clearName();
     }
 
     @Override
-    public void clickSaveName(String nameTxt) {
-        saveName(nameTxt);
+    public boolean clickSaveName(String nameTxt) {
+        return saveName(nameTxt);
     }
 
     // For test purposes
-    public void saveName(String txt){
-        getModel().saveName(txt);
+    public boolean saveName(String txt){
+        return getModel().saveName(txt);
     }
 
     @Override
-    public void onNameSaved(String nameTxt) {
-
+    public boolean onNameSaved(String nameTxt) {
+        return nameTxt != null;
     }
 
     @Override
-    public void onNameCleared() {
-
+    public boolean onNameCleared() {
+        return true;
     }
 }

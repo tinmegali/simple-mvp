@@ -92,6 +92,10 @@ public abstract class GenericPresenter
         }
     }
 
+    public void createTest( ModelType model, RequiredPresenterOps presenterOps ) {
+
+    }
+
 
     /**
      * Define a VIEW reference available to PRESENTER.
@@ -168,4 +172,14 @@ public abstract class GenericPresenter
      */
     @SuppressWarnings("unchecked")
     public ProvidedModelOps getModel() { return (ProvidedModelOps) mOpsInstance; }
+
+    /**
+     * Added for test purposes. Sets the given Model
+     * without the need to cal {@link #onCreate(Class, Object)}.
+     * IMPORTANT: Use ONLY FOR TESTS.
+     * @param model Model instance
+     */
+    public void testWithModel(ModelType model) {
+        mOpsInstance = model;
+    }
 }

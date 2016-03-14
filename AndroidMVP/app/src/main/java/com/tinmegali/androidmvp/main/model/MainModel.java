@@ -56,16 +56,13 @@ public class MainModel extends GenericModel<MVP_MainActivity.RequiredPresenterOp
     String mName;
 
     @Override
-    public void clearName() {
+    public boolean clearName() {
         mName = null;
-        getPresenter().onNameCleared();
+        return getPresenter().onNameCleared();
     }
 
     @Override
-    public void saveName(final String nameTxt) {
-//        mName = nameTxt;
-//        getPresenter().onNameSaved(mName);
-
+    public boolean saveName(final String nameTxt) {
         new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... params) {
@@ -85,6 +82,7 @@ public class MainModel extends GenericModel<MVP_MainActivity.RequiredPresenterOp
                     getPresenter().onNameSaved(name);
             }
         }.execute();
+        return true;
     }
 
     // just for tests

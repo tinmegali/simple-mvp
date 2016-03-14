@@ -6,6 +6,7 @@ import com.tinmegali.androidmvp.main.presenter.MainPresenter;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
@@ -13,6 +14,8 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 /**
+ *
+ * A simple Test case to illustrate how to Test Model
  * ---------------------------------------------------
  * Created by Tin Megali on 14/03/16.
  * Project: AndroidMVP
