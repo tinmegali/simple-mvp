@@ -40,7 +40,7 @@ Created by <a href="http://www.tinmegali.com">Tin Megali</a>
 <h3>Quick install</h3>
 <ol>
 	<li>
-		add <em>build.gradle</em> <pre>compile 'com.tinmegali.mvp:mvp:0.0.4'</pre>
+		add <em>build.gradle</em> <pre>compile 'com.tinmegali.mvp:mvp:0.0.5'</pre>
 	</li>
 	<li>
 		Create interfaces to communicate between MVP layers
