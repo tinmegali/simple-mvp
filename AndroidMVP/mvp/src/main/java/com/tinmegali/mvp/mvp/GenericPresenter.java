@@ -92,6 +92,7 @@ public abstract class GenericPresenter
         }
     }
 
+
     /**
      * Define a VIEW reference available to PRESENTER.
      * Should be called i {@link PresenterOps#onCreate(Object)}

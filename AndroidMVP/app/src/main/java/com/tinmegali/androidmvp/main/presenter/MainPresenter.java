@@ -89,12 +89,22 @@ public class MainPresenter
 
     @Override
     public void clickClearName() {
+        clearName();
+    }
+
+    // For test purposes
+    public void clearName(){
         getModel().clearName();
     }
 
     @Override
     public void clickSaveName(String nameTxt) {
-        getModel().saveName(nameTxt);
+        saveName(nameTxt);
+    }
+
+    // For test purposes
+    public void saveName(String txt){
+        getModel().saveName(txt);
     }
 
     @Override
