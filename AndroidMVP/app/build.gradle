@@ -25,8 +25,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
 
-    compile project(":mvp")
-//    compile 'com.tinmegali.mvp:mvp:0.0.4'
+//    compile project(":mvp")
+    compile 'com.tinmegali.mvp:mvp:0.0.5'
 
     // Unit testing dependencies
     testCompile 'junit:junit:4.12'
