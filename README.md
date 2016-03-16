@@ -6,6 +6,11 @@ based on concept from
 <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc"> 
 Dr. Douglas Schmidt</a>
 </p>
+<p>
+	<strong>Attention: </strong>
+	<code>simple-mvp</code> is still an <strong>experimental</strong> library created for education purposes. <br/>
+	Some methods and operations may change until its maturity.
+</p>
 
 <p>
 Created by <a href="http://www.tinmegali.com">Tin Megali</a> 	
@@ -20,7 +25,7 @@ Created by <a href="http://www.tinmegali.com">Tin Megali</a>
 	</li>
 	<li>
 		<a href="http://www.tinmegali.com/en/model-view-presenter-android-part-1/">
-			Model View Presenter Tutorial series</a> <br />
+			Model View Presenter Tutorial series</a> <br/>
 		<em>Tutoriais também disponíveis em português</em>
 	</li>
 	<!-- 
@@ -40,7 +45,7 @@ Created by <a href="http://www.tinmegali.com">Tin Megali</a>
 <h3>Quick install</h3>
 <ol>
 	<li>
-		add <em>build.gradle</em> <pre>compile 'com.tinmegali.mvp:mvp:0.0.5'</pre>
+		add <em>build.gradle</em> <pre>compile 'com.tinmegali.mvp:mvp:0.0.7'</pre>
 	</li>
 	<li>
 		Create interfaces to communicate between MVP layers
