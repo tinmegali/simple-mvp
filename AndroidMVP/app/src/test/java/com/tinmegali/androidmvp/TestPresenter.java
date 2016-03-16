@@ -1,5 +1,6 @@
 package com.tinmegali.androidmvp;
 
+import com.tinmegali.androidmvp.main.MVP_MainActivity;
 import com.tinmegali.androidmvp.main.model.MainModel;
 import com.tinmegali.androidmvp.main.presenter.MainPresenter;
 import com.tinmegali.androidmvp.main.view.MainActivity;
@@ -71,4 +72,5 @@ public class TestPresenter {
         spyPresenter.clickClearName();
         verify(spyPresenter).clearName();
     }
+
 }

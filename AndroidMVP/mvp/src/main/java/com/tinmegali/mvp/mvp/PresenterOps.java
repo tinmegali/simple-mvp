@@ -7,27 +7,26 @@ package com.tinmegali.mvp.mvp;
  * the PRESENTER. Garantes the correct synchronization of MVP
  * with Activity lifecycle.
  * </p>
- * </p>
+ * <p>
  * <strong>IMPORTANT: View Object should implement <code> RequiredViewOps </code></strong>
  * </p>
  *
- * </p>
  * <p>
- * Created by Tin Megali on 24/02/16. <br/>
- * Project: AndroidMVP <br/>
+ * Created by Tin Megali on 24/02/16. <br>
+ * Project: AndroidMVP <br>
  *
  * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
  * </p>
- * --------------------------------------------------- <br/>
+ * --------------------------------------------------- <br>
  * <p>
  * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
  *     framework MVP</a> developed by
  * <a href="https://github.com/douglascraigschmidt">
  *     Dr. Douglas Schmidth</a>
  * </p>
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/tree/master/AndroidMVP/app">Sample Application</a>
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
+ * @see <a href="https://github.com/tinmegali/simple-mvp">Project's Git</a> <br>
+ * @see <a href="https://github.com/tinmegali/simple-mvp/tree/master/AndroidMVP/app">Sample Application</a>
+ * @see <a href="https://github.com/tinmegali/simple-mvp/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
  *         Sample MVP interface
  *     </a>
  *
@@ -35,7 +34,7 @@ package com.tinmegali.mvp.mvp;
  *                         operations available to PRESENTER
  *
  */
-public interface PresenterOps<RequiredViewOps> {
+public interface PresenterOps<RequiredViewOps> extends ContextView {
 
     /**
      * Initialization method.
@@ -58,7 +57,7 @@ public interface PresenterOps<RequiredViewOps> {
      *
      * @param view  New VIEW instance reference
      */
-    void onConfigurationChange(RequiredViewOps view);
+    void onConfigurationChanged(RequiredViewOps view);
 
     /**
      * Hook method called when the VIEW is being destroyed or
@@ -77,4 +76,7 @@ public interface PresenterOps<RequiredViewOps> {
      * OnBack pressed Event, called by the VIEW.
      */
     void onBackPressed();
+
+
+
 }

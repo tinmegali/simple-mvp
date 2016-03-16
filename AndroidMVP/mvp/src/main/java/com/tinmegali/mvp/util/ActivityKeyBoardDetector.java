@@ -2,7 +2,6 @@ package com.tinmegali.mvp.util;
 
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -10,15 +9,15 @@ import android.view.ViewTreeObserver;
 import android.widget.Toast;
 
 /**
- * Created by Tin Megali on 24/02/16. <br/>
- * Project: AndroidMVP <br/>
+ * Created by Tin Megali on 24/02/16. <br>
+ * Project: AndroidMVP <br>
  *
- * <a href="http://www.tinmegali.com">www.tinmegali.com</a> <br/>
- * <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
- * --------------------------------------------------- <br/>
- * <br/><br/>
+ * <a href="http://www.tinmegali.com">www.tinmegali.com</a> <br>
+ * <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br>
+ * --------------------------------------------------- <br>
+ * <br><br>
  * Object to add to an Activity the capability to detect the presence
- * of the SoftKeyboard. <br/>
+ * of the SoftKeyboard. <br>
  *
  */
 public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
@@ -43,11 +42,11 @@ public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
     }
 
     /**
-     * Shows a {@link android.widget.Toast} in the Activity with custom time
+     * Shows a <code>android.widget.Toast</code> in the Activity with custom time
      * @param msg       Message to show
      * @param duration  Time Length
-     *                      {@link android.widget.Toast#LENGTH_SHORT}
-     *                      {@link android.widget.Toast#LENGTH_LONG}
+     *                      <code>android.widget.Toast#LENGTH_SHORT</code>
+     *                      <code>@link android.widget.Toast#LENGTH_LONG</code>
      */
     protected void showToast(String msg, final int duration) {
         Toast.makeText(
@@ -56,35 +55,35 @@ public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
     }
 
     /**
-     * Shows a {@link Snackbar} in Activity with a short time
+     * Shows a <code>Snackbar</code> in Activity with a short time
      * @param msg         Snackbar message
      * @param view  Snackbar parent view
      */
     protected void showSnackbar(String msg, View view){
-        Snackbar.make(view, msg, Snackbar.LENGTH_SHORT).show();
+        android.support.design.widget.Snackbar.make(view, msg, android.support.design.widget.Snackbar.LENGTH_SHORT).show();
     }
 
 
     /**
-     * Shows a {@link Snackbar} in Activity with custom time
+     * Shows a <code>Snackbar</code> in Activity with custom time
      * @param msg         Snackbar message
      * @param view  Snackbar parent view
      * @param duration    Time Length
-     *                      {@link Snackbar#LENGTH_SHORT}
-     *                      {@link Snackbar#LENGTH_LONG}
-     *                      {@link Snackbar#LENGTH_INDEFINITE}
+     *                      <code>Snackbar#LENGTH_SHORT</code>
+     *                      <code>Snackbar#LENGTH_LONG</code>
+     *                      <code>Snackbar#LENGTH_INDEFINITE</code>
      */
     protected void showSnackbar(String msg, View view, int duration){
-        Snackbar.make( view, msg, duration).show();
+        android.support.design.widget.Snackbar.make( view, msg, duration).show();
     }
 
 
     /**
-     * Shows a given {@link Snackbar}.
+     * Shows a given <code>Snackbar</code>
      * Useful for snacks with custom actions.
      * @param snackbar  The Snackbar to show
      */
-    protected void showSnackbar(Snackbar snackbar){
+    protected void showSnackbar(android.support.design.widget.Snackbar snackbar){
         snackbar.show();
     }
 
@@ -165,6 +164,7 @@ public abstract class ActivityKeyBoardDetector extends AppCompatActivity {
     /**
      * Controls if SoftKeyBoard is on/off
      * - May return null if {@link #startDetectRootViewChanges(View)} wasn't called
+     * @return true if SoftKeyboard is showing on screen
      */
     protected Boolean isKeyboardOn() {
         Log.d(TAG, "isKeyboardOn()");

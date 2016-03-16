@@ -49,7 +49,6 @@ public class MainModel extends GenericModel<MVP_MainActivity.RequiredPresenterOp
      */
     @Override
     public void onDestroy(boolean isChangingConfiguration) {
-
     }
 
 

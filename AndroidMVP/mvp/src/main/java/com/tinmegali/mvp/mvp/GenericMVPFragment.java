@@ -1,9 +1,6 @@
 package com.tinmegali.mvp.mvp;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -11,22 +8,21 @@ import java.lang.ref.WeakReference;
 /**
  * <p>
  * Generic Abstract Fragment.
- * Works as a VIEW layer in the MVP pattern. <br/>
+ * Works as a VIEW layer in the MVP pattern. <br>
  * Responsible to initialize the PRESENTER and to maintain
- * it synchronized with Activity lifecycle changes. <br/>
+ * it synchronized with Activity lifecycle changes. <br>
  * <strong>IMPORTANT: View Object should implement <code>RequiredViewOps</code></strong>
  * </p>
- * </p>
  * <p>
- * Created by Tin Megali on 24/02/16. <br/>
- * Project: AndroidMVP <br/>
+ * Created by Tin Megali on 24/02/16. <br>
+ * Project: AndroidMVP <br>
  *
  * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
  * </p>
  *
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/tree/master/AndroidMVP/app">Sample Application</a>
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
+ * @see <a href="https://github.com/tinmegali/simple-mvp">Project's Git</a> <br>
+ * @see <a href="https://github.com/tinmegali/simple-mvp/tree/master/AndroidMVP/app">Sample Application</a>
+ * @see <a href="https://github.com/tinmegali/simple-mvp/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
  *         Sample MVP interface
  *     </a>
  *
@@ -43,7 +39,7 @@ public abstract class GenericMVPFragment<
         RequiredViewOps,
         ProvidedPresenterOps,
         PresenterType extends PresenterOps<RequiredViewOps>>
-        extends Fragment
+        extends android.support.v4.app.Fragment
         implements ContextView {
 
     protected final String TAG = getClass().getSimpleName();
@@ -75,7 +71,7 @@ public abstract class GenericMVPFragment<
 
     /**
      * Hook method to initialize PRESENTER. Needs to be called in
-     * {@link Fragment#onCreate(Bundle)}.
+     * <code>Fragment#onCreate(Bundle)</code>
      *
      * @param opsType   PRESENTER Object class
      * @param view      Interface with VIEW reference to PRESENTER
@@ -146,7 +142,7 @@ public abstract class GenericMVPFragment<
         if ( mPresenterInstance == null ) {
             initialize( opsType, view );
         } else {
-            mPresenterInstance.onConfigurationChange( view );
+            mPresenterInstance.onConfigurationChanged(view);
         }
     }
 

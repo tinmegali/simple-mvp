@@ -40,7 +40,7 @@ dependencies {
 
 
 group = 'com.tinmegali.mvp' // Change this to match your package name
-version = '0.0.6' // Change this to match your version number
+version = '0.0.7' // Change this to match your version number
 
 task generateSourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -70,7 +70,7 @@ bintray {
         version {
             name = 'simple-mvp'
             desc = 'A simple MVP Framework without any external libraries.'
-            vcsTag = '0.0.6'
+            vcsTag = '0.0.7'
         }
 
         licenses = ['Apache-2.0']
