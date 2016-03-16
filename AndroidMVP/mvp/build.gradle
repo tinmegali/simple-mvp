@@ -7,7 +7,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -40,7 +40,7 @@ dependencies {
 
 
 group = 'com.tinmegali.mvp' // Change this to match your package name
-version = '0.0.5' // Change this to match your version number
+version = '0.0.7' // Change this to match your version number
 
 task generateSourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -68,14 +68,14 @@ bintray {
         name = BINRAY_NAME
 
         version {
-            name = '0.1.1'
-            desc = 'MVP Framework'
-            vcsTag = '0.1.1'
+            name = 'simple-mvp'
+            desc = 'A simple MVP Framework without any external libraries.'
+            vcsTag = '0.0.7'
         }
 
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/tinmegali/Android-Model-View-Presenter-MVP.git'
-        websiteUrl = 'https://github.com/tinmegali/Android-Model-View-Presenter-MVP'
+        vcsUrl = 'https://github.com/tinmegali/simple-mvp'
+        websiteUrl = 'https://github.com/tinmegali/simple-mvp'
     }
     configurations = ['archives']
 }

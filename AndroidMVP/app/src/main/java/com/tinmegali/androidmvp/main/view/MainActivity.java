@@ -44,7 +44,6 @@ public class MainActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // super método obrigatório
         super.onCreate(MainPresenter.class,this);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -58,30 +57,6 @@ public class MainActivity
                         .setAction("Action", null).show();
             }
         });
-    }
 
-    @Override
-    public void onShowSnackbar(String msg, View parentView) {
-        showSnackbar(msg, parentView);
-    }
-
-    @Override
-    public void onShowToast(String msg) {
-        showToast(msg);
-    }
-
-    @Override
-    public void onShowToast(String msg, int duration) {
-        showToast(msg, duration);
-    }
-
-    @Override
-    public void onShowSnackbar(String msg, View parentView, int duration) {
-        showSnackbar(msg, parentView, duration);
-    }
-
-    @Override
-    public void onShowSnackbar(Snackbar snackbar) {
-        showSnackbar(snackbar);
     }
 }

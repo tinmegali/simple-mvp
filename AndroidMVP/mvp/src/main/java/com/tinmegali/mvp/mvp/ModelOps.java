@@ -2,23 +2,22 @@ package com.tinmegali.mvp.mvp;
 
 /**
  * <p>
- * Interface implemented by {@link GenericModel}. <br/>
+ * Interface implemented by {@link GenericModel}. <br>
  * Contains
  * initializing and destruction methods called by VIEW layer in
  * all MVP objects. Garantes the correct synchronization of MVP
  * with Activity lifecycle.
- * </p>
+ * <p>
  * <strong>IMPORTANT: View Object should implement <code> RequiredViewOps </code></strong>
  * </p>
  *
- * </p>
  * <p>
- * Created by Tin Megali on 24/02/16. <br/>
- * Project: AndroidMVP <br/>
+ * Created by Tin Megali on 24/02/16. <br>
+ * Project: AndroidMVP <br>
  *
  * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
  * </p>
- * --------------------------------------------------- <br/>
+ * --------------------------------------------------- <br>
  * <p>
  * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
  *     framework MVP</a> developed by
@@ -26,9 +25,9 @@ package com.tinmegali.mvp.mvp;
  *     Dr. Douglas Schmidth</a>
  * </p>
  *
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/tree/master/AndroidMVP/app">Sample Application</a>
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
+ * @see <a href="https://github.com/tinmegali/simple-mvp">Project's Git</a> <br>
+ * @see <a href="https://github.com/tinmegali/simple-mvp/tree/master/AndroidMVP/app">Sample Application</a>
+ * @see <a href="https://github.com/tinmegali/simple-mvp/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
  *         Sample MVP interface
  *     </a>
  *

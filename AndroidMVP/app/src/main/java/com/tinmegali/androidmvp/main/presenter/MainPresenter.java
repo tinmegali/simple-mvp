@@ -2,6 +2,7 @@ package com.tinmegali.androidmvp.main.presenter;
 
 import com.tinmegali.androidmvp.main.MVP_MainActivity;
 import com.tinmegali.androidmvp.main.model.MainModel;
+import com.tinmegali.mvp.mvp.ContextView;
 import com.tinmegali.mvp.mvp.GenericMVPActivity;
 import com.tinmegali.mvp.mvp.GenericPresenter;
 
@@ -48,7 +49,7 @@ public class MainPresenter
      *         initialize the object
      *     </li>
      *     <li>
-     *         Always call  {@link GenericPresenter#setView(Object)} to save a
+     *         Always call  {@link GenericPresenter#setView(ContextView)} to save a
      *         <code>RequiredViewOps</code> reference
      *     </li>
      * </ul>
@@ -65,21 +66,21 @@ public class MainPresenter
      * Operation called by VIEW after its reconstruction.
      *<ul>
      *     <li>
-     *         Always call {@link GenericPresenter#setView(Object)} to
+     *         Always call {@link GenericPresenter#setView(ContextView)} to
      *         save the new instance of <code>RequiredViewOps</code>
      *     </li>
      *</ul>
      * @param view  The current VIEW instance
      */
     @Override
-    public void onConfigurationChange(MVP_MainActivity.RequiredViewOps view) {
+    public void onConfigurationChanged(MVP_MainActivity.RequiredViewOps view) {
         setView(view);
     }
 
 
     /**
-     * Called by {@link GenericMVPActivity} to inform an
-     * <code>onBackPressed</code> event
+     * Helper method to inform Presenter that a <code>onBackPressed</code> event occurred
+     * Called by {@link GenericMVPActivity}
      */
     @Override
     public void onBackPressed() {

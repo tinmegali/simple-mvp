@@ -1,27 +1,30 @@
 package com.tinmegali.mvp.mvp;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
 /**
+ *
+ * <p>A Model View Presenter Library using plain and simple interfaces.</p>
+ *
  * <p>
- * Abstract class of PRESENTER layer on MVP pattern. <br/>
+ * Abstract class of PRESENTER layer on MVP pattern. <br>
  * Should be extended by any PRESENTER object
  * <strong>IMPORTANT: PRESENTER pbject should implement
  *  <code>RequiredPresenterOps</code> and <code>ProvidedModelOps</code></strong>
- * </p>
+ * <p>
  * <strong>IMPORTANT: View Object should implement <code> RequiredViewOps </code></strong>
  * </p>
  *
- * </p>
  * <p>
- * Created by Tin Megali on 24/02/16. <br/>
- * Project: AndroidMVP <br/>
+ * Created by Tin Megali on 24/02/16. <br>
+ * Project: AndroidMVP <br>
  *
  * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
  * </p>
- * --------------------------------------------------- <br/>
+ * --------------------------------------------------- <br>
  * <p>
  * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
  *     framework MVP</a> developed by
@@ -29,9 +32,9 @@ import java.lang.ref.WeakReference;
  *     Dr. Douglas Schmidth</a>
  * </p>
  *
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/tree/master/AndroidMVP/app">Sample Application</a>
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
+ * @see <a href="https://github.com/tinmegali/simple-mvp">Project's Git</a> <br>
+ * @see <a href="https://github.com/tinmegali/simple-mvp/tree/master/AndroidMVP/app">Sample Application</a>
+ * @see <a href="https://github.com/tinmegali/simple-mvp/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
  *         Sample MVP interface
  *     </a>
  *
@@ -50,8 +53,8 @@ import java.lang.ref.WeakReference;
  */
 
 public abstract class GenericPresenter
-        <RequiredPresenterOps,
-                ProvidedModelOps, RequiredViewOps,
+                <RequiredPresenterOps,
+                ProvidedModelOps, RequiredViewOps extends ContextView,
                 ModelType extends ModelOps<RequiredPresenterOps> >
         implements PresenterOps<RequiredViewOps>
 {
@@ -92,11 +95,6 @@ public abstract class GenericPresenter
         }
     }
 
-    public void createTest( ModelType model, RequiredPresenterOps presenterOps ) {
-
-    }
-
-
     /**
      * Define a VIEW reference available to PRESENTER.
      * Should be called i {@link PresenterOps#onCreate(Object)}
@@ -118,6 +116,22 @@ public abstract class GenericPresenter
             Log.w(TAG, "View unavailable.");
             return null;
         }
+    }
+
+    /**
+     * Recover the application Context
+     * @return Application Context
+     */
+    public Context getApplicationContext() {
+        return mView.get().getApplicationContext();
+    }
+
+    /**
+     * Recover the Activity Context
+     * @return  Activity Context
+     */
+    public Context getActivityContext() {
+        return mView.get().getActivityContext();
     }
 
     /**

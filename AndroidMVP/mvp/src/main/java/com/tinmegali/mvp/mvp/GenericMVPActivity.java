@@ -3,27 +3,28 @@ package com.tinmegali.mvp.mvp;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.View;
 
 import com.tinmegali.mvp.util.ActivityKeyBoardDetector;
 /**
  * <p>
  * Generic Abstract Activity.
- * Works as a VIEW layer in the MVP pattern. <br/>
+ * Works as a VIEW layer in the MVP pattern. <br>
  * Responsible to initialize the PRESENTER and to maintain
- * it synchronized with Activity lifecycle changes. <br/>
+ * it synchronized with Activity lifecycle changes. <br>
  *
  * <strong>IMPORTANT: View Object should implement <code> RequiredViewOps </code></strong>
  * </p>
  *
- * </p>
  * <p>
- * Created by Tin Megali on 24/02/16. <br/>
- * Project: AndroidMVP <br/>
+ * Created by Tin Megali on 24/02/16. <br>
+ * Project: AndroidMVP <br>
  *
  * <a href="http://www.tinmegali.com">www.tinmegali.com</a>
  * </p>
- * --------------------------------------------------- <br/>
+ * --------------------------------------------------- <br>
  * <p>
  * Based on <a href="https://github.com/douglascraigschmidt/POSA-15/tree/master/ex/AcronymExpander/src/vandy/mooc">
  *     framework MVP</a> developed by
@@ -31,9 +32,9 @@ import com.tinmegali.mvp.util.ActivityKeyBoardDetector;
  *     Dr. Douglas Schmidth</a>
  * </p>
  *
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP">Project's Git</a> <br />
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/tree/master/AndroidMVP/app">Sample Application</a>
- * @see <a href="https://github.com/tinmegali/Android-Model-View-Presenter-MVP/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
+ * @see <a href="https://github.com/tinmegali/simple-mvp">Project's Git</a> <br>
+ * @see <a href="https://github.com/tinmegali/simple-mvp/tree/master/AndroidMVP/app">Sample Application</a>
+ * @see <a href="https://github.com/tinmegali/simple-mvp/blob/master/AndroidMVP/app/src/main/java/com/tinmegali/androidmvp/main/MVP_MainActivity.java">
  *         Sample MVP interface
  *     </a>
  *
@@ -146,8 +147,55 @@ public abstract class GenericMVPActivity
             Log.w(TAG, "reinitialize: recreating presenter");
             initialize(opsType, view );
         } else {
-            mPresenterInstance.onConfigurationChange( view );
+            mPresenterInstance.onConfigurationChanged(view);
         }
+    }
+
+    /**
+     * Show a Snackbar. Helper method to be called by Presenter
+     * @param msg         Snackbar message
+     * @param parentView  Snackbar parent view
+     */
+    public void onShowSnackbar(String msg, View parentView) {
+        showSnackbar(msg, parentView);
+    }
+
+    /**
+     * Show a Toast. Helper method to be called by Presenter
+     * @param msg   Message to show
+     */
+    public void onShowToast(String msg) {
+        showToast(msg);
+    }
+
+    /**
+     * Show a Toast. Helper method to be called by Presenter
+     * @param msg       Message to show
+     * @param duration  Time Length
+     *                      {@link android.widget.Toast#LENGTH_SHORT}
+     */
+    public void onShowToast(String msg, int duration) {
+        showToast(msg, duration);
+    }
+
+    /**
+     * Show a Snackbar. Helper method to be called by Presenter
+     * @param msg         Snackbar message
+     * @param parentView  Snackbar parent view
+     * @param duration    Time Length
+     *                      <code>Snackbar#LENGTH_SHORT</code>
+     *                      <code>Snackbar#LENGTH_LONG</code>
+     */
+    public void onShowSnackbar(String msg, View parentView, int duration) {
+        showSnackbar(msg, parentView, duration);
+    }
+
+    /**
+     * Show a Snackbar. Helper method to be called by Presenter
+     * @param snackbar  The Snackbar to show
+     */
+    public void onShowSnackbar(Snackbar snackbar) {
+        showSnackbar(snackbar);
     }
 
 }
