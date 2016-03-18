@@ -1,10 +1,14 @@
 package com.tinmegali.androidmvp.main.presenter;
 
+import android.util.Log;
+
 import com.tinmegali.androidmvp.main.MVP_MainActivity;
 import com.tinmegali.androidmvp.main.model.MainModel;
 import com.tinmegali.mvp.mvp.ContextView;
 import com.tinmegali.mvp.mvp.GenericMVPActivity;
 import com.tinmegali.mvp.mvp.GenericPresenter;
+
+import javax.inject.Inject;
 
 /**
 
@@ -38,6 +42,17 @@ public class MainPresenter
             MVP_MainActivity.RequiredPresenterOps,
             MVP_MainActivity.ProvidedPresenterOps
 {
+
+    public static final String TAG = MainPresenter.class.getSimpleName();
+
+    public MVP_MainActivity.ProvidedModelOps mModel;
+
+    @Inject
+    public MainPresenter(MainModel model) {
+//        Log.d(TAG, "constructor()");
+        model.onCreate(this);
+        mModel = model;
+    }
 
     /**
      * Operation called during VIEW creation in
@@ -87,6 +102,10 @@ public class MainPresenter
 
     }
 
+    @Override
+    public MVP_MainActivity.ProvidedModelOps getModel() {
+        return mModel;
+    }
 
     @Override
     public boolean clickClearName() {
@@ -100,6 +119,7 @@ public class MainPresenter
 
     @Override
     public boolean clickSaveName(String nameTxt) {
+//        Log.d(TAG, "clickSaveName("+nameTxt+")");
         return saveName(nameTxt);
     }
 
@@ -110,6 +130,7 @@ public class MainPresenter
 
     @Override
     public boolean onNameSaved(String nameTxt) {
+        Log.d(TAG, "onNameSaved("+nameTxt+")");
         return nameTxt != null;
     }
 

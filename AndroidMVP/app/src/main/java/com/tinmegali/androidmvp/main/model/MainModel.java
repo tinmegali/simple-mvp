@@ -3,7 +3,11 @@ package com.tinmegali.androidmvp.main.model;
 import android.os.AsyncTask;
 
 import com.tinmegali.androidmvp.main.MVP_MainActivity;
+import com.tinmegali.androidmvp.main.presenter.MainPresenter;
 import com.tinmegali.mvp.mvp.GenericModel;
+import com.tinmegali.mvp.mvp.PresenterOps;
+
+import javax.inject.Inject;
 
 /**
  * <p>
@@ -29,6 +33,14 @@ import com.tinmegali.mvp.mvp.GenericModel;
 public class MainModel extends GenericModel<MVP_MainActivity.RequiredPresenterOps>
         implements MVP_MainActivity.ProvidedModelOps {
 
+
+
+
+
+
+    public MainModel() {
+    }
+
     /**
      * Method that recovers a reference to the PRESENTER
      * <ul>
@@ -50,6 +62,7 @@ public class MainModel extends GenericModel<MVP_MainActivity.RequiredPresenterOp
     @Override
     public void onDestroy(boolean isChangingConfiguration) {
     }
+
 
 
     String mName;

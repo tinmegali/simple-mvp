@@ -38,13 +38,10 @@ public class TestPresenter {
     @Before
     @SuppressWarnings("unchecked")
     public void setup() {
-
-        mPresenter = new MainPresenter();
-        mView = mock(MainActivity.class);
         mModel = mock(MainModel.class);
-
+        mPresenter = new MainPresenter(mModel);
+        mView = mock(MainActivity.class);
         mPresenter.setView(mView);
-        mPresenter.testWithModel(mModel);
 
         spyPresenter = spy(mPresenter);
         doReturn(mModel).when(spyPresenter).getModel();
